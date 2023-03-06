@@ -1,6 +1,7 @@
 package com.KidbizSSO.TestCases;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -38,7 +39,14 @@ public class SchoologyTest extends BaseClass {
 		
 		// Redirecting to course page
 		coursePage= homepage.clickOnCourse();
+		coursePage.clickA3KQA();
+		coursePage.framebusting();
 		
+	}
+	
+	@AfterMethod
+	public void teardown() {
+		wd.quit();
 	}
 
 }

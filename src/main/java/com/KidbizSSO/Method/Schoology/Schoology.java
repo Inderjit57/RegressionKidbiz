@@ -1,4 +1,4 @@
-package com.KidbizSSO.Method;
+package com.KidbizSSO.Method.Schoology;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
