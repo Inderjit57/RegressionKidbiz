@@ -7,9 +7,10 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.KidbizSSO.BasePackage.BaseClass;
-import com.KidbizSSO.Method.CoursePage;
-import com.KidbizSSO.Method.Schoology;
-import com.KidbizSSO.Method.SchoologyHomepage;
+import com.KidbizSSO.Method.Schoology.CoursePage;
+import com.KidbizSSO.Method.Schoology.Schoology;
+import com.KidbizSSO.Method.Schoology.SchoologyHomepage;
+
 
 public class SchoologyTest extends BaseClass {
 
