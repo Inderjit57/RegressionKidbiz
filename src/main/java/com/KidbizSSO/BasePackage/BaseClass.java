@@ -3,6 +3,9 @@ package com.KidbizSSO.BasePackage;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -13,9 +16,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseClass {
 
 	public static WebDriver wd;
-	public WebDriverWait wait;
+	public static WebDriverWait wait;
 	public Properties properties;
 	public FileInputStream file;
+	public String openbrowser;
+	public String url;
+	public static JavascriptExecutor javascriptExecutor;
 
 	public BaseClass() {
 		try {
@@ -33,7 +39,8 @@ public class BaseClass {
 
 	public void browserInitialization() {
 
-		String openbrowser = properties.getProperty("browser");
+		// Open set Browser in Config.properties
+		openbrowser = properties.getProperty("browser");
 
 		switch (openbrowser) {
 		case "chrome":
@@ -50,6 +57,16 @@ public class BaseClass {
 			System.out.println("wrong browser");
 			break;
 		}
+
+		// Switch URL set in config.properties
+
+		wait = new WebDriverWait(wd, 10);
+		wd.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+		
+		javascriptExecutor = (JavascriptExecutor) wd;
+
+		wd.manage().window().maximize();
+
 
 	}
 
