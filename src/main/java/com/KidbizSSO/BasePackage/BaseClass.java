@@ -11,17 +11,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.KidbizSSO.Util.Utils;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 
 	public static WebDriver wd;
 	public static WebDriverWait wait;
-	public Properties properties;
-	public FileInputStream file;
+	public static Properties properties;
+	public static FileInputStream file;
 	public String openbrowser;
 	public String url;
 	public static JavascriptExecutor javascriptExecutor;
+	public Utils utils;
+	
 
 	public BaseClass() {
 		try {
