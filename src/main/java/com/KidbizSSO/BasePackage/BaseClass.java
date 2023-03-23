@@ -9,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.KidbizSSO.Util.Utils;
@@ -25,7 +26,6 @@ public class BaseClass {
 	public String url;
 	public static JavascriptExecutor javascriptExecutor;
 	public Utils utils;
-	
 
 	public BaseClass() {
 		try {
@@ -62,15 +62,12 @@ public class BaseClass {
 			break;
 		}
 
-		// Switch URL set in config.properties
+//		wait = new WebDriverWait(wd, Utils.waitForSeconds);
+		wd.manage().timeouts().pageLoadTimeout(Utils.waitForSeconds, TimeUnit.SECONDS);
 
-		wait = new WebDriverWait(wd, 10);
-		wd.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-		
 		javascriptExecutor = (JavascriptExecutor) wd;
 
 		wd.manage().window().maximize();
-
 
 	}
 
