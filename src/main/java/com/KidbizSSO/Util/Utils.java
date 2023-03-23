@@ -1,12 +1,18 @@
 package com.KidbizSSO.Util;
 
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.KidbizSSO.BasePackage.BaseClass;
 
 public class Utils extends BaseClass {
+
+	Select select;
 
 	public static int waitForSeconds = 15;
 
@@ -34,6 +40,34 @@ public class Utils extends BaseClass {
 	// Send Keys
 	public static void sendData(WebElement element, String text) {
 		waitForElementToBeVisible(element, waitForSeconds).sendKeys(text);
+	}
+
+	// Select an element
+	public static void selectFromDropDownUsingVisibleText(WebElement element, String text) {
+		try {
+			if (waitForElementToBeSelectable(element, 15)) {
+				new Select(element).deselectByVisibleText(text);
+			}
+		} catch (NoSuchElementException e) {
+			// TODO: handle exception
+		}
+
+	}
+
+	public static void selectFromDropDownUsingIndex(WebElement element, int index) {
+		try {
+			if (waitForElementToBeSelectable(element, 15)) {
+				new Select(element).selectByIndex(index);
+			}
+		} catch (NoSuchElementException e) {
+			// TODO: handle exception
+		}
+
+	}
+	
+	public static void moveToElement(WebElement element) {
+		Actions actions = new Actions(wd);
+		actions.moveToElement(element).build().perform();
 	}
 
 	// Explicit wait: Wait for element to be clickable
