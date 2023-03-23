@@ -84,7 +84,7 @@ public class CanvasCreateUserPage extends BaseClass {
 		Utils.submitInfo(addUserBtn);
 
 		// Send random user created to excel file using the following method
-		WriteIntoExcel.writeTest(enterFullName);
+		WriteIntoExcel.writeNewUserName(enterFullName);
 
 	}
 
