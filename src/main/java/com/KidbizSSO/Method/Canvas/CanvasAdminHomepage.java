@@ -34,11 +34,19 @@ public class CanvasAdminHomepage extends BaseClass {
 	// Actively Learn
 	@FindBy(css = ".tray-with-space-for-global-nav div ul li:nth-of-type(1) a")
 	WebElement clickAL;
-
+	
+	// This methods invokes CanvasCreateUserPage
 	public CanvasCreateUserPage clickOnAL() {
 		Utils.waitForElementToBeClickable(clickAL, Utils.waitForSeconds);
 		Utils.javascriptClick(clickAL);
 		return new CanvasCreateUserPage();
+	}
+	
+	// This method invokes CanvasNewClass
+	public CanvasNewClass clickAL1() {
+		Utils.waitForElementToBeClickable(clickAL, Utils.waitForSeconds);
+		Utils.javascriptClick(clickAL);
+		return new CanvasNewClass();
 	}
 
 }
