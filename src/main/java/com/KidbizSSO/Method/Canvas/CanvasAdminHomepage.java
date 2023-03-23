@@ -8,8 +8,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.KidbizSSO.BasePackage.BaseClass;
+import com.KidbizSSO.Util.Utils;
 
 public class CanvasAdminHomepage extends BaseClass {
+	
+	/*
+	 * Canvas Admin account page
+	 */
 
 	public CanvasAdminHomepage() {
 		// TODO Auto-generated constructor stub
@@ -21,8 +26,8 @@ public class CanvasAdminHomepage extends BaseClass {
 	WebElement adminbtn;
 
 	public void clickAdmin() {
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#global_nav_accounts_link")));
-		adminbtn.click();
+		Utils.waitForElementToBeClickable(adminbtn, Utils.waitForSeconds);
+		Utils.clickOnElement(adminbtn);
 
 	}
 
@@ -30,12 +35,10 @@ public class CanvasAdminHomepage extends BaseClass {
 	@FindBy(css = ".tray-with-space-for-global-nav div ul li:nth-of-type(1) a")
 	WebElement clickAL;
 
-	public CanvasSearchPage clickOnAL() {
-
-		wait.until(ExpectedConditions
-				.elementToBeClickable(By.cssSelector(".tray-with-space-for-global-nav div ul li:nth-of-type(1)")));
-		javascriptExecutor.executeScript("arguments[0].click();", clickAL);
-		return new CanvasSearchPage();
+	public CanvasCreateUserPage clickOnAL() {
+		Utils.waitForElementToBeClickable(clickAL, Utils.waitForSeconds);
+		Utils.javascriptClick(clickAL);
+		return new CanvasCreateUserPage();
 	}
 
 }
