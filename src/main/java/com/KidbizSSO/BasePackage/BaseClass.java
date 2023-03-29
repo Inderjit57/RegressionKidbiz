@@ -9,7 +9,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.KidbizSSO.Util.Utils;
@@ -25,7 +24,6 @@ public class BaseClass {
 	public String openbrowser;
 	public String url;
 	public static JavascriptExecutor javascriptExecutor;
-	public Utils utils;
 
 	public BaseClass() {
 		try {
@@ -62,13 +60,20 @@ public class BaseClass {
 			break;
 		}
 
-//		wait = new WebDriverWait(wd, Utils.waitForSeconds);
+		// Explicit wait
+		wait = new WebDriverWait(wd, Utils.waitForSeconds);
+
+		// Implicit wait
 		wd.manage().timeouts().pageLoadTimeout(Utils.waitForSeconds, TimeUnit.SECONDS);
 
 		javascriptExecutor = (JavascriptExecutor) wd;
 
 		wd.manage().window().maximize();
 
+	}
+	
+	public void quitDriver() {
+		wd.quit();
 	}
 
 }
