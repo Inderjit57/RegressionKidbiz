@@ -1,4 +1,4 @@
-package com.Kidbiz.CreateUsers;
+package com.Kidbiz.CanvasCreateUsers;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -7,11 +7,11 @@ import org.testng.asserts.SoftAssert;
 
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Method.Canvas.CanvasAdminHomepage;
-import com.KidbizSSO.Method.Canvas.CanvasCreateUserPage;
 import com.KidbizSSO.Method.Canvas.CanvasLoginPage;
 import com.KidbizSSO.Method.Canvas.CanvasNewClass;
+import com.KidbizSSO.Util.WriteIntoExcel;
 
-public class CanvasAddNewCourse extends BaseClass{
+public class CanvasAddNewCourse extends BaseClass {
 
 	CanvasLoginPage canvasLoginPage;
 	CanvasAdminHomepage adminHomepage;
@@ -25,9 +25,9 @@ public class CanvasAddNewCourse extends BaseClass{
 
 		canvasLoginPage = new CanvasLoginPage();
 	}
-	
-	@Test
-	public void canvasCreateNewCourseTest() throws Exception {
+
+	@Test(invocationCount = 2)
+	public void canvasCreateNewCourseTest() {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
 		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("canvasUrl"),
 				"Not a valid Page. Expecting Canvas Login Page");
@@ -41,10 +41,15 @@ public class CanvasAddNewCourse extends BaseClass{
 
 		// click on Actively Learn
 		canvasNewClass = adminHomepage.clickAL1();
-		canvasNewClass.addcourse();
+		canvasNewClass.clickCourse();
+		canvasNewClass.inputCourseAndReferenceCode();
+		canvasNewClass.selectSubaccount();
+		canvasNewClass.selectEnrolmentTerm();
+		canvasNewClass.clickAddCourse();
+
 	}
-	
-	@AfterMethod(enabled = false)
+
+	@AfterMethod(enabled = true)
 	public void tearDown() {
 		wd.quit();
 	}

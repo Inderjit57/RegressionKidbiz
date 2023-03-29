@@ -14,7 +14,7 @@ import org.testng.asserts.SoftAssert;
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.KidBizPages.KidbizHompage;
 import com.KidbizSSO.KidBizPages.UserAccount;
-import com.KidbizSSO.Method.Schoology.CoursePage;
+import com.KidbizSSO.Method.Schoology.TestCoursePage_ssoToKidbiz;
 import com.KidbizSSO.Method.Schoology.Schoology;
 import com.KidbizSSO.Method.Schoology.SchoologyHomepage;
 
@@ -22,7 +22,7 @@ public class SchoologyTest extends BaseClass {
 
 	Schoology schoology;
 	SchoologyHomepage homepage;
-	CoursePage coursePage;
+	TestCoursePage_ssoToKidbiz testCoursePage_ssoToKidbiz;
 	KidbizHompage kidbizHompage;
 	UserAccount userAccount;
 
@@ -45,9 +45,9 @@ public class SchoologyTest extends BaseClass {
 //		sf.assertEquals(null, null, null);
 
 		// Redirecting to course page
-		coursePage = homepage.clickOnCourse();
-		coursePage.clickA3KQA();
-		kidbizHompage = coursePage.framebusting();
+		testCoursePage_ssoToKidbiz = homepage.clickOnCourse();
+		testCoursePage_ssoToKidbiz.clickA3KQA();
+		kidbizHompage = testCoursePage_ssoToKidbiz.framebusting();
 		
 //		sf.assertEquals(wd.getCurrentUrl(), properties.getProperty("schoologyUrl"),"Error while loading Kidbiz Page");
 		kidbizHompage.selectSchool();

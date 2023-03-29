@@ -1,4 +1,4 @@
-package com.Kidbiz.CreateUsers;
+package com.Kidbiz.CanvasCreateUsers;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -13,10 +13,9 @@ import com.KidbizSSO.Method.Schoology.Schoology;
 import com.KidbizSSO.Util.WriteIntoExcel;
 
 public class CanvasNewUserTest extends BaseClass {
-
-	CanvasLoginPage canvasLoginPage;
-	CanvasAdminHomepage adminHomepage;
-	CanvasCreateUserPage canvasCreateUserPage;
+	CanvasLoginPage canvasLoginPage = new CanvasLoginPage();
+	CanvasAdminHomepage adminHomepage = new CanvasAdminHomepage();
+	CanvasCreateUserPage canvasCreateUserPage = new CanvasCreateUserPage();
 	SoftAssert softAssert = new SoftAssert();
 
 	@BeforeMethod
@@ -27,7 +26,7 @@ public class CanvasNewUserTest extends BaseClass {
 		canvasLoginPage = new CanvasLoginPage();
 	}
 
-	@Test()
+	@Test(invocationCount = 3)
 	public void createNewCanvasTeacherTest() throws Exception {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
 		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("canvasUrl"),
@@ -43,10 +42,10 @@ public class CanvasNewUserTest extends BaseClass {
 		// click on Actively Learn
 		canvasCreateUserPage = adminHomepage.clickOnAL();
 		canvasCreateUserPage.clickPeople();
-//		softAssert.assertEquals(canvasCreateUserPage.getSearchBtn(),"Search people...","Search element is not present" );
 		canvasCreateUserPage.clickpeopleForm();
 		canvasCreateUserPage.fillForm();
 
+		softAssert.assertAll();
 	}
 
 	@AfterMethod(enabled = true)

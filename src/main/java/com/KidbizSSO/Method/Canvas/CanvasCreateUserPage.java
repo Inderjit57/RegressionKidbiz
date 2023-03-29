@@ -14,12 +14,13 @@ import com.KidbizSSO.Util.WriteIntoExcel;
 import net.bytebuddy.utility.RandomString;
 
 public class CanvasCreateUserPage extends BaseClass {
-	
+
 	/*
-	 * Canvas - Actively learn page after clicking on AL in the navigation bar - To create users
+	 * Canvas - Actively learn page after clicking on AL in the navigation bar - To
+	 * create users
 	 */
 
-	CanvasCreateUserPage() {
+	public CanvasCreateUserPage() {
 		PageFactory.initElements(wd, this);
 	}
 
@@ -62,16 +63,22 @@ public class CanvasCreateUserPage extends BaseClass {
 	@FindBy(css = "form[aria-label='Add a New User'] div")
 	WebElement addNewUserFormWindow;
 
-	// Variables declared to fill the form to create new teacher
-	public static String firstName = RandomStringUtils.randomAlphabetic(4); // Generic for Student and Teacher Account
-	String lastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
-	public String enterFullName = firstName + ", " + lastName; // Last name needs a space on Canvas while creating user
-	String enterSortable = " " + lastName; // Issue on Canvas side, it doesn't put the last name in sortable name
-	String enterEmail = firstName + "@gmail.com";
-	String enterSISID = firstName;
-
-	public void fillForm() throws Exception {
+	public void fillForm() {
 		Utils.waitForElementToBeVisible(addNewUserFormWindow, 10);
+
+		/*
+		 * Variables declared a to fill the form to create new teacher. Variables are
+		 * declared and initialised in the scope of this method, so that for a new
+		 * webDriver instance(when invocation count is >1) new random value will be
+		 * created. If they are declared at class level, Webdriver takes the old value
+		 */
+		String firstName = RandomStringUtils.randomAlphabetic(4); // Generic for Student and Teacher Account
+		String lastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
+		String enterFullName = firstName + ", " + lastName; // Last name needs a space on Canvas while creating user
+		String enterSortable = " " + lastName; // Issue on Canvas side, it doesn't put the last name in sortable name
+		String enterEmail = firstName + "@gmail.com";
+		String enterSISID = lastName;
+
 		Utils.javascriptClick(fullName);
 
 		System.out.println("Full Name: " + enterFullName + "\nSIS ID: " + enterSISID);
@@ -84,16 +91,8 @@ public class CanvasCreateUserPage extends BaseClass {
 		Utils.submitInfo(addUserBtn);
 
 		// Send random user created to excel file using the following method
-		WriteIntoExcel.writeNewUserName(enterFullName);
+//		WriteIntoExcel.writeNewUserName(enterFullName);
 
-	}
-
-	// Search for newly created teacher
-	@FindBy(css = "input[type='search']")
-	public WebElement searchBtn;
-
-	public String getSearchBtn() {
-		return searchBtn.getText();
 	}
 
 }

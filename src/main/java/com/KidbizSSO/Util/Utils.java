@@ -12,7 +12,8 @@ import com.KidbizSSO.BasePackage.BaseClass;
 
 public class Utils extends BaseClass {
 
-	Select select;
+	public static Select select;
+	public static Actions actions = new Actions(wd);
 
 	public static int waitForSeconds = 15;
 
@@ -66,8 +67,12 @@ public class Utils extends BaseClass {
 	}
 	
 	public static void moveToElement(WebElement element) {
-		Actions actions = new Actions(wd);
 		actions.moveToElement(element).build().perform();
+		
+	}
+	
+	public static void actionClick(WebElement element) {
+		actions.click(element).perform();
 	}
 
 	// Explicit wait: Wait for element to be clickable

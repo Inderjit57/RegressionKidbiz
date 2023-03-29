@@ -11,9 +11,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.KidBizPages.KidbizHompage;
 
-public class CoursePage extends BaseClass {
+public class TestCoursePage_ssoToKidbiz extends BaseClass {
 
-	public CoursePage() {
+	public TestCoursePage_ssoToKidbiz() {
 		PageFactory.initElements(wd, this);
 	}
 
