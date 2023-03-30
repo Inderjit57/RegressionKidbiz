@@ -26,7 +26,7 @@ public class CanvasAddNewCourse extends BaseClass {
 		canvasLoginPage = new CanvasLoginPage();
 	}
 
-	@Test(invocationCount = 2)
+	@Test(invocationCount = 4)
 	public void canvasCreateNewCourseTest() {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
 		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("canvasUrl"),
