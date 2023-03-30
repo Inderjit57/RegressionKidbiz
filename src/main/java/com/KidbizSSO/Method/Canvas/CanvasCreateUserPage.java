@@ -9,9 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
-import com.KidbizSSO.Util.WriteIntoExcel;
-
-import net.bytebuddy.utility.RandomString;
 
 public class CanvasCreateUserPage extends BaseClass {
 
@@ -46,22 +43,22 @@ public class CanvasCreateUserPage extends BaseClass {
 	 * Add new User Form
 	 */
 	@FindBy(css = "form[aria-label='Add a New User'] input[label='Full Name']")
-	WebElement fullName;
+	private WebElement fullName;
 
 	@FindBy(css = "input[label='Sortable Name']")
-	WebElement sortableName;
+	private WebElement sortableName;
 
 	@FindBy(css = "input[label='Email']")
-	WebElement email;
+	private WebElement email;
 
 	@FindBy(css = "input[label='SIS ID']")
-	WebElement sisID;
+	private WebElement sisID;
 
 	@FindBy(css = "button[type='submit']")
-	WebElement addUserBtn;
+	private WebElement addUserBtn;
 
 	@FindBy(css = "form[aria-label='Add a New User'] div")
-	WebElement addNewUserFormWindow;
+	private WebElement addNewUserFormWindow;
 
 	public void fillForm() {
 		Utils.waitForElementToBeVisible(addNewUserFormWindow, 10);
@@ -72,11 +69,11 @@ public class CanvasCreateUserPage extends BaseClass {
 		 * webDriver instance(when invocation count is >1) new random value will be
 		 * created. If they are declared at class level, Webdriver takes the old value
 		 */
-		String firstName = RandomStringUtils.randomAlphabetic(4); // Generic for Student and Teacher Account
+		String firstName = "CanvasUser"+properties.getProperty("currentDateForUsers")+RandomStringUtils.randomAlphabetic(4); // Generic for Student and Teacher Account
 		String lastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
 		String enterFullName = firstName + ", " + lastName; // Last name needs a space on Canvas while creating user
 		String enterSortable = " " + lastName; // Issue on Canvas side, it doesn't put the last name in sortable name
-		String enterEmail = firstName + "@gmail.com";
+		String enterEmail = firstName + properties.getProperty("emailDomain");
 		String enterSISID = lastName;
 
 		Utils.javascriptClick(fullName);

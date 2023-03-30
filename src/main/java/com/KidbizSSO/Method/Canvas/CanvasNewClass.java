@@ -1,11 +1,14 @@
 package com.KidbizSSO.Method.Canvas;
 
+import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
@@ -24,25 +27,25 @@ public class CanvasNewClass extends BaseClass {
 	String pickSchool;
 
 	@FindBy(css = "button[aria-label='Create new course']")
-	WebElement addCourseBtn;
+	private WebElement addCourseBtn;
 
 	@FindBy(xpath = "//form[@aria-label='Add a New Course']/ div[2] // fieldset// span// span/ span/span/span/span[1]/label/span/span/span[2]/span/input")
-	WebElement courseName;
+	private WebElement courseName;
 
 	@FindBy(xpath = "//form[@aria-label='Add a New Course']/ div[2] // fieldset// span// span/ span/span/span/span[2]/label/span/span/span[2]/span/input")
-	WebElement referenceCode;
+	private WebElement referenceCode;
 
 	@FindBy(css = "input[id='accountSelector']")
-	WebElement subaccount;
+	private WebElement subaccount;
 
 	@FindBy(css = "input[id='termSelector']")
-	WebElement enrolmentTerm;
+	private WebElement enrolmentTerm;
 
 	@FindBy(css = "button[type='submit']")
-	WebElement submitAddCourse;
+	private WebElement submitAddCourse;
 
 	@FindBy(css = "form[aria-label='Add a New Course']")
-	WebElement addNewCourseWindow;
+	private WebElement addNewCourseWindow;
 
 	private String[] schoolName = { "CANVAS Luda's Test School K+S+A", "CANVAS Luda's Test School K+S+M",
 			"CANVAS Luda's Test School K+M", "CANVAS Luda's Test School K+A", "CANVAS Luda's Test School K only",
@@ -83,8 +86,10 @@ public class CanvasNewClass extends BaseClass {
 		int randomSelection = rand.nextInt(schoolName.length);
 
 		pickSchool = schoolName[randomSelection];
-		Utils.sendData(subaccount, pickSchool);
 		System.out.println("Course Name: " + pickSchool);
+
+		Utils.sendData(subaccount, pickSchool);
+		wait.until(ExpectedConditions.textToBePresentInElementValue(subaccount, pickSchool));
 		// Send random user created to excel file using the following method
 //		WriteIntoExcel.writeNewCourseName(CanvasNewClass.enterCourseName);
 	}
