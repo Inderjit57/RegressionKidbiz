@@ -5,6 +5,7 @@ import java.util.Random;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -26,50 +27,51 @@ public class SchoologyMyCourseListPage extends BaseClass {
 
 	// Create New Course button
 	@FindBy(css = "div[class='course-action-btns'] a:nth-of-type(2)")
-	WebElement createCourseBtn;
+	private WebElement createCourseBtn;
 
 	// Popup to create new course
 	@FindBy(css = "a[class='select2-choice']")
-	WebElement school;
+	private WebElement school;
 
 	@FindBy(css = "#s2id_autogen1_search")
-	WebElement schoolSelection;
+	private WebElement schoolSelection;
 
 	@FindBy(css = "input[id='edit-course-name']")
-	WebElement courseName;
+	private WebElement courseName;
 
 	@FindBy(css = "input[id='edit-section-name-1']")
-	WebElement sectionName;
+	private WebElement sectionName;
 
 	@FindBy(css = "select[id='edit-subject-area']")
-	WebElement subjectArea;
+	private WebElement subjectArea;
 
 	@FindBy(css = "select[id='edit-grade-level-range-start']")
-	WebElement level;
+	private WebElement level;
 
 	@FindBy(css = "div[class='existing-grading-period-item']")
-	WebElement gradingPeriods;
+	private WebElement gradingPeriods;
 
 	@FindBy(css = ".submit-buttons input[type='submit']")
-	WebElement createBtn;
+	private WebElement createBtn;
 
 	// select Random School from the list and send it to UI
 	private String[] schoologySchoolName = { "SCHOOLOGY Luda's Test School K+S+A", "SCHOOLOGY Luda's Test School K+S+M",
 			"SCHOOLOGY Luda's Test School K+M", "SCHOOLOGY Luda's Test School K+A",
 			"SCHOOLOGY Luda's Test School K only", "SCHOOLOGY Luda's Test School K+S" };
 	Random randomSchoologySchool;
-	String pickSchoologySchool;
-	String section = pickSchoologySchool;
-	int randomSelection1;
-	int randomSelection2;
-	int randomSelection3;
+	private String pickSchoologySchool;
+	private int randomSelection1;
+	private int randomSelection2;
+	private int randomSelection3;
 
 	public void clickCreateSchoologyCourse() {
+		wd.navigate().refresh();
 		Utils.clickOnElement(createCourseBtn);
 
 	}
 
 	public void clickSchool() {
+
 		wait.until(ExpectedConditions.elementToBeClickable(school));
 		Utils.clickOnElement(school);
 
@@ -80,10 +82,15 @@ public class SchoologyMyCourseListPage extends BaseClass {
 		Utils.sendData(schoolSelection, pickSchoologySchool);
 		System.out.println("School picked: " + pickSchoologySchool);
 
-//		wait.until(ExpectedConditions.elementToBeSelected(By.xpath("// div[@id='select2-drop']/ ul/li[1]/div")));
-		WebElement selectPickedSchool = wd.findElement(By.xpath("// div[@id='select2-drop']/ ul/li[1]/div"));
-		Utils.moveToElement(selectPickedSchool);
-		Utils.actionClick(selectPickedSchool);
+		List<WebElement> selectPickedSchool = wd.findElements(By.xpath("// div[@id='select2-drop']/ ul/li[1]/div"));
+		for (WebElement element : selectPickedSchool) {
+
+			if (element.getText().equals(pickSchoologySchool)) {
+				element.click();
+				break;
+			} else
+				continue;
+		}
 
 	}
 

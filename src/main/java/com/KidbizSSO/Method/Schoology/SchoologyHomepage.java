@@ -30,4 +30,20 @@ public class SchoologyHomepage extends BaseClass {
 		Utils.clickOnElement(courseBtnHomepage);
 		return new SchoologyCreateNewCourse();
 	}
+	
+	//Go to Tools- User Management
+	@FindBy(css = "nav[role='navigation'] ul:nth-of-type(1) li:nth-of-type(5)" )
+	WebElement toolsBtn;
+	
+	@FindBy(css = " nav[role='navigation'] ul:nth-of-type(1) li:nth-of-type(5) ul a:nth-of-type(3)")
+	WebElement userManagement;
+	
+	public void clickTools() {
+		Utils.clickOnElement(toolsBtn);
+	}
+	
+	public SchoologyCreateNewTeacher clickUserManagement() {
+		Utils.clickOnElement(userManagement);
+		return new SchoologyCreateNewTeacher();
+	}
 }
