@@ -47,7 +47,7 @@ public class Utils extends BaseClass {
 	public static void selectFromDropDownUsingVisibleText(WebElement element, String text) {
 		try {
 			if (waitForElementToBeSelectable(element, 15)) {
-				new Select(element).deselectByVisibleText(text);
+				new Select(element).selectByVisibleText(text);
 			}
 		} catch (NoSuchElementException e) {
 			// TODO: handle exception
