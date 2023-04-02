@@ -77,7 +77,7 @@ public class CanvasNewClass extends BaseClass {
 
 	}
 
-	public void selectSubaccount() {
+	public void selectSubaccount() throws Exception {
 		Utils.javascriptClick(subaccount);
 		/*
 		 * Selecting random school from the arraylist above to send to subacount
@@ -89,7 +89,10 @@ public class CanvasNewClass extends BaseClass {
 		System.out.println("Course Name: " + pickSchool);
 
 		Utils.sendData(subaccount, pickSchool);
-		wait.until(ExpectedConditions.textToBePresentInElementValue(subaccount, pickSchool));
+		Utils.waitForTextToBePresestInElementValue(Utils.Explicit_Wait, subaccount, pickSchool);
+
+		Utils.clickOnElement(subaccount);
+		Thread.sleep(2000);
 		// Send random user created to excel file using the following method
 //		WriteIntoExcel.writeNewCourseName(CanvasNewClass.enterCourseName);
 	}

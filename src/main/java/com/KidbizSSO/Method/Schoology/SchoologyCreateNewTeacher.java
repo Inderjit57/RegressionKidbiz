@@ -118,24 +118,19 @@ public class SchoologyCreateNewTeacher extends BaseClass {
 		 * created. If they are declared at class level, Webdriver takes the old value
 		 */
 		String firstName = "SchTeacher" + properties.getProperty("currentDateForUsers")
-				+ RandomStringUtils.randomAlphabetic(4); // Generic
-		// for
-		// Student
-		// and
-		// Teacher
-		// Account
+				+ RandomStringUtils.randomAlphabetic(4);
 		String lastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
 		String userName = firstName;
 		String email = firstName + "_" + lastName + properties.getProperty("emailDomain");
 		String uniqueId = firstName;
 		String password = properties.getProperty("passwordToSet");
-
+		
 		Utils.sendData(firstNameCell, firstName);
 		Utils.sendData(lastNameCell, lastName);
 		Utils.sendData(userNameCell, userName);
 		Utils.sendData(emailCell, email);
 		Utils.sendData(uniqueIDCell, uniqueId);
-		Utils.sendData(passwordCell, properties.getProperty("passwordToSet"));
+		Utils.sendData(passwordCell, password);
 
 		System.out.println("UserName: " + firstName);
 		System.out.println("Email: " + email + "\nPassword: " + password);
