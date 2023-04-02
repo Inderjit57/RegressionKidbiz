@@ -111,6 +111,7 @@ public class SchoologyMyCourseListPage extends BaseClass {
 		List<WebElement> selectSubject = wd.findElements(By.xpath("//select[@id='edit-subject-area'] / option"));
 		randomSelection2 = randomSchoologySchool.nextInt(selectSubject.size());
 		Utils.selectFromDropDownUsingIndex(subjectArea, randomSelection2);
+		Utils.waitForElementToBeSelectable(subjectArea, Utils.Explicit_Wait);
 	}
 
 	public void selectLevelAndGrade() {
@@ -118,6 +119,7 @@ public class SchoologyMyCourseListPage extends BaseClass {
 				.findElements(By.xpath("//select[@id='edit-grade-level-range-start']/optgroup[1]/option"));
 		randomSelection3 = randomSchoologySchool.nextInt(levelselect.size());
 		Utils.selectFromDropDownUsingIndex(level, randomSelection3);
+		Utils.waitForElementToBeSelectable(level, Utils.Explicit_Wait);
 
 		Utils.clickOnElement(gradingPeriods);
 	}
