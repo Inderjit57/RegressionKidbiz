@@ -26,8 +26,8 @@ public class CanvasAddNewCourse extends BaseClass {
 		canvasLoginPage = new CanvasLoginPage();
 	}
 
-	@Test(invocationCount = 4)
-	public void canvasCreateNewCourseTest() {
+	@Test(invocationCount = 3)
+	public void canvasCreateNewCourseTest() throws Exception {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
 		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("canvasUrl"),
 				"Not a valid Page. Expecting Canvas Login Page");

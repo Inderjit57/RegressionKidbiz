@@ -25,8 +25,8 @@ public class SchoologyCreateNewCourseTest extends BaseClass {
 		schoology = new Schoology();
 	}
 
-	@Test(invocationCount = 2)
-	public void createNewStudentSchoologyTest() {
+	@Test(invocationCount = 5)
+	public void createNewCourseSchoologyTest() {
 		schoology.email(properties.getProperty("emailSchoology"));
 		schoology.pass(properties.getProperty("passSchoology"));
 		homepage = schoology.signIn();
@@ -45,7 +45,7 @@ public class SchoologyCreateNewCourseTest extends BaseClass {
 
 	}
 
-	@AfterMethod(enabled = false)
+	@AfterMethod(enabled = true)
 	public void teardown() {
 		quitDriver();
 	}
