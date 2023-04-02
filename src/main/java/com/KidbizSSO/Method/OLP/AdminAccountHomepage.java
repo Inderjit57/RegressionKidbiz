@@ -1,13 +1,12 @@
 package com.KidbizSSO.Method.OLP;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
-
-import bsh.util.Util;
 
 public class AdminAccountHomepage extends BaseClass {
 
@@ -24,17 +23,17 @@ public class AdminAccountHomepage extends BaseClass {
 	@FindBy(css = "div[class='dropdown ng-tns-c109-0']")
 	WebElement dropdownMenu;
 
-	@FindBy(css = "button[aria-label='administrator']")
-	WebElement administratorBtn;
-
 	public void clickDropdown() {
-		Utils.waitForElementToBeClickable(dropdownMenu, 10);
+		Utils.waitForElementToBeClickable(dropdownMenu, Utils.Explicit_Wait);
 		Utils.clickOnElement(dropdownMenu);
 	}
 
 	public AdministratorPage clickAdministrator() {
-//		Utils.waitForElementToBeClickable(dropdownMenu, 10);
-		Utils.actionClick(administratorBtn);
+
+		WebElement administratorBtn = wd.findElement(By.cssSelector(
+				"div[class='cdk-overlay-pane shell-dropdown-menu dropdown-menu ngx-shared d-block overflow-auto p-0'] div ul li:nth-of-type(4)"));
+		Utils.waitForElementToBeClickable(administratorBtn, Utils.Explicit_Wait);
+		Utils.javascriptClick(administratorBtn);
 		return new AdministratorPage();
 	}
 
