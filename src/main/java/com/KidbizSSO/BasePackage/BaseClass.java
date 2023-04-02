@@ -64,12 +64,15 @@ public class BaseClass {
 		wait = new WebDriverWait(wd, Utils.waitForSeconds);
 
 		// Implicit wait
-		wd.manage().timeouts().pageLoadTimeout(Utils.waitForSeconds, TimeUnit.SECONDS);
+		
 
 		javascriptExecutor = (JavascriptExecutor) wd;
 
 		wd.manage().window().maximize();
 
+	}
+	public void waitForPageToLoad() {
+		wd.manage().timeouts().pageLoadTimeout(Utils.waitForSeconds, TimeUnit.SECONDS);
 	}
 	
 	public void quitDriver() {
