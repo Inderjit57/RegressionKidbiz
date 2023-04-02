@@ -25,6 +25,7 @@ public class OLPLoginPage extends BaseClass{
 	WebElement loginBtn;
 	
 	public void inputEmailPassword() {
+		Utils.waitForElementToBeVisible(email, Utils.Explicit_Wait);
 		Utils.sendData(email, properties.getProperty("emailMH"));
 		Utils.sendData(password, properties.getProperty("passwordMH"));
 	}

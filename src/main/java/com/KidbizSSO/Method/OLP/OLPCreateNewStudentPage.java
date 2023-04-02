@@ -28,10 +28,10 @@ public class OLPCreateNewStudentPage extends BaseClass {
 	@FindBy(css = "#familyName")
 	private WebElement lastNameOlpStudent;
 
-	@FindBy(css = "button[class='btn btn-secondary dropdown-toggle ng-tns-c109-89 ng-star-inserted']")
+	@FindBy(css = "main[data-automation-id='sideapps-main-content'] div[id='studentCreateEdit'] div form div:nth-of-type(5) button")
 	private WebElement studentGradeLevel;
 
-	@FindBy(css  = "div[class='cdk-overlay-container'] div ul li")
+	@FindBy(css = "div[class='cdk-overlay-container'] div ul li")
 	private WebElement gradeList;
 
 	@FindBy(css = "#email")
@@ -85,12 +85,13 @@ public class OLPCreateNewStudentPage extends BaseClass {
 		Utils.sendData(firstNameOlpStudent, firstName);
 		Utils.sendData(lastNameOlpStudent, lastName);
 
+		Utils.waitForElementToBeClickable(studentGradeLevel, Utils.Explicit_Wait);
 		Utils.clickOnElement(studentGradeLevel);
-		
+		Thread.sleep(1000);
+
 		// Select grade from the list randomly
 		Random randomIntForGradeSelection = new Random();
-		List<WebElement> olpGradeList = wd.findElements(
-				By.cssSelector("div[class='cdk-overlay-container'] div ul li"));
+		List<WebElement> olpGradeList = wd.findElements(By.cssSelector("div[class='cdk-overlay-container'] div ul li"));
 
 		randomOLPGradeSelection = randomIntForGradeSelection.nextInt(olpGradeList.size());
 
