@@ -15,7 +15,8 @@ public class Utils extends BaseClass {
 	public static Select select;
 	public static Actions actions = new Actions(wd);
 
-	public static int waitForSeconds = 15;
+	public static int waitForSeconds = 10;
+	public static int Explicit_Wait = 10;
 
 	// Javascript Executor will got the WebElement to perform click function
 	public static void javascriptClick(WebElement element) {
@@ -84,6 +85,11 @@ public class Utils extends BaseClass {
 	public static WebElement waitForElementToBeVisible(WebElement element, int timeOutInSeconds) {
 		return new WebDriverWait(wd, timeOutInSeconds).until(ExpectedConditions.visibilityOf(element));
 	}
+	
+	// Explicit wait: Wait for element to be Visible
+		public static Boolean waitForTextToBePresestInElementValue( int timeOutInSeconds,WebElement element, String text) {
+			return new WebDriverWait(wd, timeOutInSeconds).until(ExpectedConditions.textToBePresentInElementValue(element,text));
+		}
 
 	// Explicit wait: Wait for element to be Selectable
 	public static Boolean waitForElementToBeSelectable(WebElement element, int timeOutInSeconds) {
