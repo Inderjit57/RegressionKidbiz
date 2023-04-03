@@ -11,9 +11,9 @@ import com.KidbizSSO.Method.Canvas.CanvasLoginPage;
 import com.KidbizSSO.Method.Canvas.CanvasCreateUserPage;
 
 public class CanvasNewUserTest extends BaseClass {
-	CanvasLoginPage canvasLoginPage = new CanvasLoginPage();
-	CanvasAdminHomepage adminHomepage = new CanvasAdminHomepage();
-	CanvasCreateUserPage canvasCreateUserPage = new CanvasCreateUserPage();
+	CanvasLoginPage canvasLoginPage;
+	CanvasAdminHomepage adminHomepage;
+	CanvasCreateUserPage canvasCreateUserPage;
 	SoftAssert softAssert = new SoftAssert();
 
 	@BeforeMethod
