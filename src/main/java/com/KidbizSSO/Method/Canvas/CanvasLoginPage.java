@@ -14,8 +14,8 @@ public class CanvasLoginPage extends BaseClass {
 	 */
 
 	public CanvasLoginPage() {
-		// TODO Auto-generated constructor stub
 		PageFactory.initElements(wd, this);
+		waitForPageToLoad();
 	}
 
 	// Email

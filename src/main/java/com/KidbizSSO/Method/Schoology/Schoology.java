@@ -9,6 +9,7 @@ import com.KidbizSSO.BasePackage.BaseClass;
 public class Schoology extends BaseClass {
 	public Schoology() {
 		PageFactory.initElements(wd, this);
+		waitForPageToLoad();
 	}
 
 	@FindBy(css = "#edit-mail")

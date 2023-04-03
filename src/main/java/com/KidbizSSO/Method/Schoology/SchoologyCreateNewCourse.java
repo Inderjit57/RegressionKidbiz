@@ -13,8 +13,8 @@ public class SchoologyCreateNewCourse extends BaseClass {
 	 * My Course list page and My course Button
 	 */
 	public SchoologyCreateNewCourse() {
-		// TODO Auto-generated constructor stub
 		PageFactory.initElements(wd, this);
+		waitForPageToLoad();
 	}
 
 	@FindBy(css = "a[href='/courses']")

@@ -11,6 +11,7 @@ public class SchoologyHomepage extends BaseClass {
 
 	public SchoologyHomepage(){
 		PageFactory.initElements(wd, this);
+		waitForPageToLoad();
 	}
 	
 	//Test Course on Homepage

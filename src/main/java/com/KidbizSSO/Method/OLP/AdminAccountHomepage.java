@@ -15,7 +15,6 @@ public class AdminAccountHomepage extends BaseClass {
 	 */
 	public AdminAccountHomepage() {
 
-		// TODO Auto-generated constructor stub
 		PageFactory.initElements(wd, this);
 		waitForPageToLoad();
 	}

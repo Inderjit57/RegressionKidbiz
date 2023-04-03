@@ -1,18 +1,13 @@
 package com.KidbizSSO.Method.Canvas;
 
-import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
-import com.KidbizSSO.Util.WriteIntoExcel;
 
 public class CanvasNewClass extends BaseClass {
 	/*
@@ -22,6 +17,7 @@ public class CanvasNewClass extends BaseClass {
 	public CanvasNewClass() {
 		// TODO Auto-generated constructor stub
 		PageFactory.initElements(wd, this);
+		waitForPageToLoad();
 	}
 
 	String pickSchool;

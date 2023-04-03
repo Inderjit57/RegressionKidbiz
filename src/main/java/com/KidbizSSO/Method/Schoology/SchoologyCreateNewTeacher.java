@@ -5,7 +5,7 @@ import java.util.Random;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,16 +14,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
 
-import bsh.util.Util;
-
 public class SchoologyCreateNewTeacher extends BaseClass {
 
 	/*
 	 * User Management page to create users
 	 */
 	public SchoologyCreateNewTeacher() {
-		// TODO Auto-generated constructor stub
 		PageFactory.initElements(wd, this);
+		waitForPageToLoad();
 	}
 
 	@FindBy(css = "div[id='sidebar-left'] ul li:nth-of-type(2) a")
@@ -124,7 +122,7 @@ public class SchoologyCreateNewTeacher extends BaseClass {
 		String email = firstName + "_" + lastName + properties.getProperty("emailDomain");
 		String uniqueId = firstName;
 		String password = properties.getProperty("passwordToSet");
-		
+
 		Utils.sendData(firstNameCell, firstName);
 		Utils.sendData(lastNameCell, lastName);
 		Utils.sendData(userNameCell, userName);

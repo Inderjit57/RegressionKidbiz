@@ -5,7 +5,6 @@ import java.util.Random;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -21,8 +20,9 @@ public class SchoologyMyCourseListPage extends BaseClass {
 	 */
 
 	public SchoologyMyCourseListPage() {
-		// TODO Auto-generated constructor stub
+
 		PageFactory.initElements(wd, this);
+		waitForPageToLoad();
 	}
 
 	// Create New Course button
