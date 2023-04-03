@@ -9,7 +9,6 @@ import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Method.Canvas.CanvasAdminHomepage;
 import com.KidbizSSO.Method.Canvas.CanvasLoginPage;
 import com.KidbizSSO.Method.Canvas.CanvasNewClass;
-import com.KidbizSSO.Util.WriteIntoExcel;
 
 public class CanvasAddNewCourse extends BaseClass {
 

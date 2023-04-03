@@ -9,8 +9,6 @@ import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Method.Canvas.CanvasAdminHomepage;
 import com.KidbizSSO.Method.Canvas.CanvasLoginPage;
 import com.KidbizSSO.Method.Canvas.CanvasCreateUserPage;
-import com.KidbizSSO.Method.Schoology.Schoology;
-import com.KidbizSSO.Util.WriteIntoExcel;
 
 public class CanvasNewUserTest extends BaseClass {
 	CanvasLoginPage canvasLoginPage = new CanvasLoginPage();
