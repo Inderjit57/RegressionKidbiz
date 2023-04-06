@@ -61,7 +61,7 @@ public class CanvasCreateUserPage extends BaseClass {
 	@FindBy(css = "form[aria-label='Add a New User'] div")
 	private WebElement addNewUserFormWindow;
 
-	public void fillForm() {
+	public void fillForm() throws Exception {
 		Utils.waitForElementToBeVisible(addNewUserFormWindow, 10);
 
 		/*
@@ -88,6 +88,7 @@ public class CanvasCreateUserPage extends BaseClass {
 		Utils.sendData(email, enterEmail);
 		Utils.sendData(sisID, enterSISID);
 		Utils.submitInfo(addUserBtn);
+		Thread.sleep(1000);
 
 		// Send random user created to excel file using the following method
 //		WriteIntoExcel.writeNewUserName(enterFullName);

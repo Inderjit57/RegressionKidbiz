@@ -43,9 +43,8 @@ public class CanvasNewClass extends BaseClass {
 	@FindBy(css = "form[aria-label='Add a New Course']")
 	private WebElement addNewCourseWindow;
 
-	private String[] schoolName = { "CANVAS Luda's Test School K+S+A", "CANVAS Luda's Test School K+S+M",
-			"CANVAS Luda's Test School K+M", "CANVAS Luda's Test School K+A", "CANVAS Luda's Test School K only",
-			"CANVAS Luda's Test School K+S" };
+	private String[] schoolName = { "CANVAS Luda's Test School K+M", "CANVAS Luda's Test School K+A",
+			"CANVAS Luda's Test School K only", "CANVAS Luda's Test School K+S" };
 
 	private String term = "Default Term";
 
