@@ -59,7 +59,7 @@ public class OLPCreateNewStudentPage extends BaseClass {
 	private WebElement createBtn;
 
 	private String[] a3kSchool = { "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2",
-			"A3K LITERACY TEST SCHOOL 3", "A3K LITERACY TEST SCHOOL 4", "A3K LITERACY TEST SCHOOL 5" };
+			"A3K LITERACY TEST SCHOOL 3" };
 
 	private String pickOlpSchool;
 
@@ -130,8 +130,9 @@ public class OLPCreateNewStudentPage extends BaseClass {
 		System.out.println("Email: " + emailOLP + "\nPassword: " + password);
 	}
 
-	public void clickCreate() {
+	public void clickCreate() throws Exception {
 
 		Utils.javascriptClick(createBtn);
+		Thread.sleep(2000);
 	}
 }

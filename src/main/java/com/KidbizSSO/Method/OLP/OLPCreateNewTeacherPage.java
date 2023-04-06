@@ -14,7 +14,7 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 	public OLPCreateNewTeacherPage() {
 		PageFactory.initElements(wd, this);
 	}
-	
+
 	@FindBy(css = "span[class='ng-star-inserted']")
 	private WebElement createTeacherPageHeader;
 
@@ -52,7 +52,7 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 	private WebElement createBtn;
 
 	private String[] a3kSchool = { "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2",
-			"A3K LITERACY TEST SCHOOL 3", "A3K LITERACY TEST SCHOOL 4", "A3K LITERACY TEST SCHOOL 5" };
+			"A3K LITERACY TEST SCHOOL 3" };
 
 	private String pickOlpSchool;
 
@@ -105,8 +105,9 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 
 	}
 
-	public void clickCreate() {
+	public void clickCreate() throws Exception {
 
 		Utils.javascriptClick(createBtn);
+		Thread.sleep(2000);
 	}
 }
