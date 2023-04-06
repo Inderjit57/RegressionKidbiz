@@ -70,7 +70,7 @@ public class SchoologyMyCourseListPage extends BaseClass {
 
 	}
 
-	public void clickSchool() {
+	public void clickSchool() throws Exception {
 
 		wait.until(ExpectedConditions.elementToBeClickable(school));
 		Utils.clickOnElement(school);
@@ -79,10 +79,9 @@ public class SchoologyMyCourseListPage extends BaseClass {
 		randomSelection1 = randomSchoologySchool.nextInt(schoologySchoolName.length);
 		pickSchoologySchool = schoologySchoolName[randomSelection1];
 
-		Utils.sendData(schoolSelection, pickSchoologySchool);
 		System.out.println("School picked: " + pickSchoologySchool);
 
-		List<WebElement> selectPickedSchool = wd.findElements(By.xpath("// div[@id='select2-drop']/ ul/li[1]/div"));
+		List<WebElement> selectPickedSchool = wd.findElements(By.xpath("// div[@id='select2-drop']/ ul/li"));
 		for (WebElement element : selectPickedSchool) {
 
 			if (element.getText().equals(pickSchoologySchool)) {
@@ -91,6 +90,7 @@ public class SchoologyMyCourseListPage extends BaseClass {
 			} else
 				continue;
 		}
+		Thread.sleep(2000);
 
 	}
 
@@ -124,8 +124,9 @@ public class SchoologyMyCourseListPage extends BaseClass {
 		Utils.clickOnElement(gradingPeriods);
 	}
 
-	public void clickCreateBtn() {
+	public void clickCreateBtn() throws Exception {
 		Utils.submitInfo(createBtn);
+		Thread.sleep(2000);
 	}
 
 }

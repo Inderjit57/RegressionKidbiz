@@ -100,8 +100,12 @@ public class SchoologyCreateNewTeacher extends BaseClass {
 
 	}
 
-	public void clickRole() {
+	public void clickTeacherRole() {
 		Utils.selectFromDropDownUsingVisibleText(role, "Teacher");
+	}
+	
+	public void clickStudentRole() {
+		Utils.selectFromDropDownUsingVisibleText(role, "Student");
 	}
 
 	public void clickEmailConflicts() {
@@ -115,7 +119,7 @@ public class SchoologyCreateNewTeacher extends BaseClass {
 		 * webDriver instance(when invocation count is >1) new random value will be
 		 * created. If they are declared at class level, Webdriver takes the old value
 		 */
-		String firstName = "SchTeacher" + properties.getProperty("currentDateForUsers")
+		String firstName = "SchStudent" + properties.getProperty("currentDateForUsers")
 				+ RandomStringUtils.randomAlphabetic(4);
 		String lastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
 		String userName = firstName;
