@@ -26,7 +26,7 @@ public class OLPCreateNewTeacherTest extends BaseClass {
 		olpLoginPage = new OLPLoginPage();
 	}
 
-	@Test(invocationCount = 5)
+	@Test(invocationCount = 10)
 	public void createNewOLPTeacherTest() throws Exception {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
 		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("canvasUrl"),
