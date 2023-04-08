@@ -14,12 +14,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
 
-public class SchoologyCreateNewTeacher extends BaseClass {
+public class SchoologyCreateNewUser extends BaseClass {
 
 	/*
 	 * User Management page to create users
 	 */
-	public SchoologyCreateNewTeacher() {
+	public SchoologyCreateNewUser() {
 		PageFactory.initElements(wd, this);
 		waitForPageToLoad();
 	}
@@ -103,7 +103,7 @@ public class SchoologyCreateNewTeacher extends BaseClass {
 	public void clickTeacherRole() {
 		Utils.selectFromDropDownUsingVisibleText(role, "Teacher");
 	}
-	
+
 	public void clickStudentRole() {
 		Utils.selectFromDropDownUsingVisibleText(role, "Student");
 	}
@@ -112,30 +112,56 @@ public class SchoologyCreateNewTeacher extends BaseClass {
 		Utils.clickOnElement(emailConflicts);
 	}
 
-	public void fillcredentials() {
+	public void fillcredentials(String role) {
 		/*
 		 * Variables declared a to fill the form to create new teacher. Variables are
 		 * declared and initialised in the scope of this method, so that for a new
 		 * webDriver instance(when invocation count is >1) new random value will be
 		 * created. If they are declared at class level, Webdriver takes the old value
 		 */
-		String firstName = "SchStudent" + properties.getProperty("currentDateForUsers")
-				+ RandomStringUtils.randomAlphabetic(4);
-		String lastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
-		String userName = firstName;
-		String email = firstName + "_" + lastName + properties.getProperty("emailDomain");
-		String uniqueId = firstName;
-		String password = properties.getProperty("passwordToSet");
+		switch (role) {
+		case "student":
+			String studentFirstName = "std" + properties.getProperty("currentDateForUsers")
+					+ RandomStringUtils.randomAlphabetic(4);
+			String studentLastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
+			String studentUserName = studentFirstName;
+			String studentEmail = studentFirstName + "_" + studentLastName + properties.getProperty("emailDomain");
+			String studentUniqueId = studentFirstName;
+			String studentPassword = properties.getProperty("passwordToSet");
 
-		Utils.sendData(firstNameCell, firstName);
-		Utils.sendData(lastNameCell, lastName);
-		Utils.sendData(userNameCell, userName);
-		Utils.sendData(emailCell, email);
-		Utils.sendData(uniqueIDCell, uniqueId);
-		Utils.sendData(passwordCell, password);
+			Utils.sendData(firstNameCell, studentFirstName);
+			Utils.sendData(lastNameCell, studentLastName);
+			Utils.sendData(userNameCell, studentUserName);
+			Utils.sendData(emailCell, studentEmail);
+			Utils.sendData(uniqueIDCell, studentUniqueId);
+			Utils.sendData(passwordCell, studentPassword);
 
-		System.out.println("UserName: " + firstName);
-		System.out.println("Email: " + email + "\nPassword: " + password);
+			System.out.println("UserName: " + studentFirstName);
+			System.out.println("Email: " + studentEmail + "\nPassword: " + studentPassword);
+			break;
+
+		case "teacher":
+			String teacherfirstName = "teach" + properties.getProperty("currentDateForUsers")
+					+ RandomStringUtils.randomAlphabetic(4);
+			String teacherlastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
+			String teacheruserName = teacherfirstName;
+			String teacheremail = teacherfirstName + "_" + teacherlastName + properties.getProperty("emailDomain");
+			String teacheruniqueId = teacherfirstName;
+			String teacherPassword = properties.getProperty("passwordToSet");
+
+			Utils.sendData(firstNameCell, teacherfirstName);
+			Utils.sendData(lastNameCell, teacherlastName);
+			Utils.sendData(userNameCell, teacheruserName);
+			Utils.sendData(emailCell, teacheremail);
+			Utils.sendData(uniqueIDCell, teacheruniqueId);
+			Utils.sendData(passwordCell, teacherPassword);
+
+			System.out.println("UserName: " + teacherfirstName);
+			System.out.println("Email: " + teacheremail + "\nPassword: " + teacherPassword);
+		default:
+			System.out.println("Please specify the correct role");
+		}
+
 	}
 
 	public void clickCreateUserSubmitBtn() {

@@ -43,8 +43,8 @@ public class SchoologyHomepage extends BaseClass {
 		Utils.clickOnElement(toolsBtn);
 	}
 	
-	public SchoologyCreateNewTeacher clickUserManagement() {
+	public SchoologyCreateNewUser clickUserManagement() {
 		Utils.clickOnElement(userManagement);
-		return new SchoologyCreateNewTeacher();
+		return new SchoologyCreateNewUser();
 	}
 }

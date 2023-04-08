@@ -10,14 +10,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
 
-public class CanvasCreateUserPage extends BaseClass {
+public class CanvasCreateTeacherPage extends BaseClass {
 
 	/*
 	 * Canvas - Actively learn page after clicking on AL in the navigation bar - To
 	 * create users
 	 */
 
-	public CanvasCreateUserPage() {
+	public CanvasCreateTeacherPage() {
 		PageFactory.initElements(wd, this);
 		waitForPageToLoad();
 	}
@@ -70,7 +70,7 @@ public class CanvasCreateUserPage extends BaseClass {
 		 * webDriver instance(when invocation count is >1) new random value will be
 		 * created. If they are declared at class level, Webdriver takes the old value
 		 */
-		String firstName = "CanvasUser" + properties.getProperty("currentDateForUsers")
+		String firstName = "Teacher" + properties.getProperty("currentDateForUsers")
 				+ RandomStringUtils.randomAlphabetic(4); // Generic for Student and Teacher Account
 		String lastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
 		String enterFullName = firstName + ", " + lastName; // Last name needs a space on Canvas while creating user

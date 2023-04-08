@@ -33,10 +33,10 @@ public class CanvasAdminHomepage extends BaseClass {
 	WebElement clickAL;
 
 	// This methods invokes CanvasCreateUserPage
-	public CanvasCreateUserPage clickOnAL() {
+	public CanvasCreateStudentPage clickOnAL() {
 		Utils.waitForElementToBeClickable(clickAL, Utils.waitForSeconds);
 		Utils.javascriptClick(clickAL);
-		return new CanvasCreateUserPage();
+		return new CanvasCreateStudentPage();
 	}
 
 	// This method invokes CanvasNewClass
