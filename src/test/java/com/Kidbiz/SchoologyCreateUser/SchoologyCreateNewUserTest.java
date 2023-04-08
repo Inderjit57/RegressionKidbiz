@@ -6,14 +6,14 @@ import org.testng.annotations.Test;
 
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Method.Schoology.Schoology;
-import com.KidbizSSO.Method.Schoology.SchoologyCreateNewTeacher;
+import com.KidbizSSO.Method.Schoology.SchoologyCreateNewUser;
 import com.KidbizSSO.Method.Schoology.SchoologyHomepage;
 
-public class SchoologyCreateNewTeacherTest extends BaseClass {
+public class SchoologyCreateNewUserTest extends BaseClass {
 
 	Schoology schoology;
 	SchoologyHomepage homepage;
-	SchoologyCreateNewTeacher schoologyCreateNewTeacher;
+	SchoologyCreateNewUser schoologyCreateNewUser;
 
 	@BeforeMethod
 	public void initialisation() {
@@ -23,37 +23,39 @@ public class SchoologyCreateNewTeacherTest extends BaseClass {
 		schoology = new Schoology();
 	}
 
-	@Test(invocationCount = 13,enabled = false)
+	@Test(invocationCount = 1,enabled = true)
 	public void createSchoologyTeacherTest() {
 		schoology.email(properties.getProperty("emailSchoology"));
 		schoology.pass(properties.getProperty("passSchoology"));
 		homepage = schoology.signIn();
 		homepage.clickTools();
 
-		schoologyCreateNewTeacher = homepage.clickUserManagement();
-		schoologyCreateNewTeacher.clickCreateUserLeftNavigation();
-		schoologyCreateNewTeacher.selectSchool();
-		schoologyCreateNewTeacher.clickTeacherRole();
-		schoologyCreateNewTeacher.clickEmailConflicts();
-		schoologyCreateNewTeacher.fillcredentials();
-		schoologyCreateNewTeacher.clickCreateUserSubmitBtn();
+		schoologyCreateNewUser = homepage.clickUserManagement();
+		schoologyCreateNewUser.clickCreateUserLeftNavigation();
+		schoologyCreateNewUser.selectSchool();
+		schoologyCreateNewUser.clickTeacherRole();
+		schoologyCreateNewUser.clickEmailConflicts();
+		schoologyCreateNewUser.fillcredentials("teacher");
+		schoologyCreateNewUser.clickCreateUserSubmitBtn();
 
 	}
 	
-	@Test(invocationCount = 15, enabled = true)
+	@Test(invocationCount = 1, enabled = true)
 	public void createSchoologyStudentTest() {
 		schoology.email(properties.getProperty("emailSchoology"));
 		schoology.pass(properties.getProperty("passSchoology"));
 		homepage = schoology.signIn();
 		homepage.clickTools();
 
-		schoologyCreateNewTeacher = homepage.clickUserManagement();
-		schoologyCreateNewTeacher.clickCreateUserLeftNavigation();
-		schoologyCreateNewTeacher.selectSchool();
-		schoologyCreateNewTeacher.clickStudentRole();
-		schoologyCreateNewTeacher.clickEmailConflicts();
-		schoologyCreateNewTeacher.fillcredentials();
-		schoologyCreateNewTeacher.clickCreateUserSubmitBtn();
+		schoologyCreateNewUser = homepage.clickUserManagement();
+		schoologyCreateNewUser.clickCreateUserLeftNavigation();
+		schoologyCreateNewUser.selectSchool();
+		schoologyCreateNewUser.clickStudentRole();
+		schoologyCreateNewUser.clickEmailConflicts();
+		schoologyCreateNewUser.fillcredentials("student");
+		schoologyCreateNewUser.clickCreateUserSubmitBtn();
+		
+		
 
 	}
 	

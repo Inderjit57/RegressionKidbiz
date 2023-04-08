@@ -10,7 +10,7 @@ import com.KidbizSSO.Method.Canvas.CanvasAdminHomepage;
 import com.KidbizSSO.Method.Canvas.CanvasLoginPage;
 import com.KidbizSSO.Method.Canvas.CanvasCreateStudentPage;
 
-public class CanvasNewTeacherTest extends BaseClass {
+public class CanvasNewStudentTest extends BaseClass {
 	CanvasLoginPage canvasLoginPage;
 	CanvasAdminHomepage adminHomepage;
 	CanvasCreateStudentPage canvasCreateStudentPage;
@@ -24,8 +24,8 @@ public class CanvasNewTeacherTest extends BaseClass {
 		canvasLoginPage = new CanvasLoginPage();
 	}
 
-	@Test(invocationCount = 10)
-	public void createNewCanvasTeacherTest() throws Exception {
+	@Test(invocationCount = 2)
+	public void createNewCanvasStudentTest() throws Exception {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
 		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("canvasUrl"),
 				"Not a valid Page. Expecting Canvas Login Page");
