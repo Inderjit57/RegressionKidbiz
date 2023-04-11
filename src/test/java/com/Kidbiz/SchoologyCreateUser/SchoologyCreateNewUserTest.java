@@ -23,25 +23,8 @@ public class SchoologyCreateNewUserTest extends BaseClass {
 		schoology = new Schoology();
 	}
 
-	@Test(invocationCount = 1,enabled = true)
-	public void createSchoologyTeacherTest() {
-		schoology.email(properties.getProperty("emailSchoology"));
-		schoology.pass(properties.getProperty("passSchoology"));
-		homepage = schoology.signIn();
-		homepage.clickTools();
-
-		schoologyCreateNewUser = homepage.clickUserManagement();
-		schoologyCreateNewUser.clickCreateUserLeftNavigation();
-		schoologyCreateNewUser.selectSchool();
-		schoologyCreateNewUser.clickTeacherRole();
-		schoologyCreateNewUser.clickEmailConflicts();
-		schoologyCreateNewUser.fillcredentials("teacher");
-		schoologyCreateNewUser.clickCreateUserSubmitBtn();
-
-	}
-	
-	@Test(invocationCount = 1, enabled = true)
-	public void createSchoologyStudentTest() {
+	@Test(invocationCount = 3, enabled = true)
+	public void createSchoologyUserTest() {
 		schoology.email(properties.getProperty("emailSchoology"));
 		schoology.pass(properties.getProperty("passSchoology"));
 		homepage = schoology.signIn();
@@ -52,14 +35,11 @@ public class SchoologyCreateNewUserTest extends BaseClass {
 		schoologyCreateNewUser.selectSchool();
 		schoologyCreateNewUser.clickStudentRole();
 		schoologyCreateNewUser.clickEmailConflicts();
-		schoologyCreateNewUser.fillcredentials("student");
+		schoologyCreateNewUser.fillcredentials(properties.getProperty("accountToCreate"));
 		schoologyCreateNewUser.clickCreateUserSubmitBtn();
-		
-		
 
 	}
-	
-	
+
 	@AfterMethod(enabled = true)
 	public void teardown() {
 		quitDriver();

@@ -8,12 +8,12 @@ import org.testng.asserts.SoftAssert;
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Method.Canvas.CanvasAdminHomepage;
 import com.KidbizSSO.Method.Canvas.CanvasLoginPage;
-import com.KidbizSSO.Method.Canvas.CanvasCreateStudentPage;
+import com.KidbizSSO.Method.Canvas.CanvasCreateUserPage;
 
-public class CanvasNewStudentTest extends BaseClass {
+public class CanvasNewUserTest extends BaseClass {
 	CanvasLoginPage canvasLoginPage;
 	CanvasAdminHomepage adminHomepage;
-	CanvasCreateStudentPage canvasCreateStudentPage;
+	CanvasCreateUserPage canvasCreateUserPage;
 	SoftAssert softAssert = new SoftAssert();
 
 	@BeforeMethod
@@ -24,8 +24,8 @@ public class CanvasNewStudentTest extends BaseClass {
 		canvasLoginPage = new CanvasLoginPage();
 	}
 
-	@Test(invocationCount = 2)
-	public void createNewCanvasStudentTest() throws Exception {
+	@Test(invocationCount = 3)
+	public void createNewCanvasUserTest() throws Exception {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
 		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("canvasUrl"),
 				"Not a valid Page. Expecting Canvas Login Page");
@@ -38,11 +38,11 @@ public class CanvasNewStudentTest extends BaseClass {
 		adminHomepage.clickAdmin();
 
 		// click on Actively Learn
-		canvasCreateStudentPage = adminHomepage.clickOnAL();
-		canvasCreateStudentPage.clickPeople();
-		canvasCreateStudentPage.clickpeopleForm();
-		canvasCreateStudentPage.fillForm();
-
+		canvasCreateUserPage = adminHomepage.clickOnAL();
+		canvasCreateUserPage.clickPeople();
+		canvasCreateUserPage.clickpeopleForm();
+		canvasCreateUserPage.fillForm(properties.getProperty("accountToCreate"));
+		canvasCreateUserPage.clickSubmitBtn();
 		softAssert.assertAll();
 	}
 
