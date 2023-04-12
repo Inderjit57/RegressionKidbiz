@@ -51,8 +51,10 @@ public class SchoologyTest extends BaseClass {
 		
 //		sf.assertEquals(wd.getCurrentUrl(), properties.getProperty("schoologyUrl"),"Error while loading Kidbiz Page");
 		kidbizHompage.selectSchool();
-
+		kidbizHompage.chooseProgramAndClass();
 		userAccount = kidbizHompage.clickLoginBtn();
+		sf.assertEquals(wd.getCurrentUrl(),"https://core-qa-portal.achieve3000.com/home","wrong Kidbiz URl");
+		
 
 	}
 
