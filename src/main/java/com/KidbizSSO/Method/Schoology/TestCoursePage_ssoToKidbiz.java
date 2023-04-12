@@ -15,6 +15,7 @@ public class TestCoursePage_ssoToKidbiz extends BaseClass {
 
 	public TestCoursePage_ssoToKidbiz() {
 		PageFactory.initElements(wd, this);
+		waitForPageToLoad();
 	}
 
 	// A3K Qa

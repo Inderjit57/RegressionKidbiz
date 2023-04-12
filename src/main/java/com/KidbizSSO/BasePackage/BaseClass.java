@@ -72,7 +72,7 @@ public class BaseClass {
 
 	}
 	public void waitForPageToLoad() {
-		wd.manage().timeouts().pageLoadTimeout(Utils.waitForSeconds, TimeUnit.SECONDS);
+		wd.manage().timeouts().pageLoadTimeout(Utils.Explicit_Wait, TimeUnit.SECONDS);
 	}
 	
 	public void quitDriver() {

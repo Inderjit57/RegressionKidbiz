@@ -16,7 +16,7 @@ public class Utils extends BaseClass {
 	public static Actions actions = new Actions(wd);
 
 	public static int waitForSeconds = 10;
-	public static int Explicit_Wait = 10;
+	public static int Explicit_Wait = 15;
 
 	// Javascript Executor will got the WebElement to perform click function
 	public static void javascriptClick(WebElement element) {
