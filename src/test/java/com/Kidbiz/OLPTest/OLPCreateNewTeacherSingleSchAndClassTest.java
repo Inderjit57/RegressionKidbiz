@@ -10,12 +10,18 @@ import com.KidbizSSO.Method.OLP.AdminAccountHomepage;
 import com.KidbizSSO.Method.OLP.AdministratorPage;
 import com.KidbizSSO.Method.OLP.OLPCreateNewTeacherPage;
 import com.KidbizSSO.Method.OLP.OLPLoginPage;
+import com.KidbizSSO.Method.OLP.NewTeachSingleSchAndClassEnrl.NewTeacherAccountPolicyConfirmPage;
+import com.KidbizSSO.Method.OLP.NewTeachSingleSchAndClassEnrl.NewTeacherAcoountHomepage;
+import com.KidbizSSO.Method.OLP.NewTeachSingleSchAndClassEnrl.NewTeacherConnectEdHomepage;
 
-public class OLPCreateNewTeacherTest extends BaseClass {
+public class OLPCreateNewTeacherSingleSchAndClassTest extends BaseClass {
 	OLPLoginPage olpLoginPage;
 	AdminAccountHomepage adminAccountHomepage;
 	AdministratorPage administratorPage;
 	OLPCreateNewTeacherPage olpCreateNewTeacherPage;
+	NewTeacherAccountPolicyConfirmPage newTeacherAccountPolicyConfirmPage;
+	NewTeacherConnectEdHomepage newTeacherConnectEdHomepage;
+	NewTeacherAcoountHomepage newTeacherAcountHomepage;
 	SoftAssert softAssert = new SoftAssert();
 
 	@BeforeMethod
@@ -26,7 +32,7 @@ public class OLPCreateNewTeacherTest extends BaseClass {
 		olpLoginPage = new OLPLoginPage();
 	}
 
-	@Test(invocationCount = 10)
+	@Test(invocationCount = 1)
 	public void createNewOLPTeacherTest() throws Exception {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
 		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("canvasUrl"),
@@ -44,9 +50,22 @@ public class OLPCreateNewTeacherTest extends BaseClass {
 		olpCreateNewTeacherPage.clickAffiliations();
 		olpCreateNewTeacherPage.clickCreate();
 
+		wd.get(properties.getProperty("mhLogoutUrl"));
+		olpLoginPage.getEmailPasswordFromNewTeacherPage();
+		newTeacherAccountPolicyConfirmPage = olpLoginPage.loginToNewTeacher();
+		newTeacherAccountPolicyConfirmPage.clickCheckBox();
+		newTeacherConnectEdHomepage = newTeacherAccountPolicyConfirmPage.clickContinueBtn();
+		newTeacherAcountHomepage = newTeacherConnectEdHomepage.clickAchive3000Lit();
+		newTeacherAcountHomepage.clickCreateClassBtn();
+		newTeacherAcountHomepage.clickProduct();
+		newTeacherAcountHomepage.createClassInfo();
+		newTeacherAcountHomepage.selectSubject();
+		newTeacherAcountHomepage.selectGrade();
+		newTeacherAcountHomepage.clickComplete();
+
 	}
 
-	@AfterMethod(enabled = true)
+	@AfterMethod(enabled = false)
 	public void tearDown() {
 
 		wd.quit();
