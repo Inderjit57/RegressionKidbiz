@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.KidbizSSO.BasePackage.BaseClass;
+import com.KidbizSSO.Method.OLP.NewTeachSingleSchAndClassEnrl.NewTeacherAccountPolicyConfirmPage;
 import com.KidbizSSO.Util.Utils;
 
 public class OLPLoginPage extends BaseClass{
@@ -34,5 +35,21 @@ public class OLPLoginPage extends BaseClass{
 		Utils.clickOnElement(loginBtn);
 		return new AdminAccountHomepage();
 	}
+	
+	
+	/*
+	 * Getting Email and Password generated in OLPCreateNewTeacherPage and Login to new teacher account
+	 */
+	public void getEmailPasswordFromNewTeacherPage() {
+		Utils.waitForElementToBeVisible(email, Utils.Explicit_Wait);
+		Utils.sendData(email, OLPCreateNewTeacherPage.emailOLP);
+		Utils.sendData(password, OLPCreateNewTeacherPage.password);
+	}
+	
+	public NewTeacherAccountPolicyConfirmPage loginToNewTeacher() {
+		Utils.clickOnElement(loginBtn);
+		return new NewTeacherAccountPolicyConfirmPage();
+	}
+	
 
 }

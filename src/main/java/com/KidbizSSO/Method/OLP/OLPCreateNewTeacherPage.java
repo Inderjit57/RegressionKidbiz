@@ -13,6 +13,7 @@ import com.KidbizSSO.Util.Utils;
 public class OLPCreateNewTeacherPage extends BaseClass {
 	public OLPCreateNewTeacherPage() {
 		PageFactory.initElements(wd, this);
+		waitForPageToLoad();
 	}
 
 	@FindBy(css = "span[class='ng-star-inserted']")
@@ -56,22 +57,22 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 
 	private String pickOlpSchool;
 
+	/*
+	 * Variables declared a to fill the form to create new teacher. Variables are
+	 * declared and initialised in the scope of this method, so that for a new
+	 * webDriver instance(when invocation count is >1) new random value will be
+	 * created. If they are declared at class level, Webdriver takes the old value
+	 */
+	public static String firstName = "teacher" + properties.getProperty("currentDateForUsers")
+			+ RandomStringUtils.randomAlphabetic(4);
+	public static String lastName = RandomStringUtils.randomAlphabetic(3);
+	public static String emailOLP = firstName + "_" + lastName + properties.getProperty("emailDomain");
+	String userName = firstName;
+	public static String password = properties.getProperty("passwordToSet");
+	String staffId = firstName + "." + lastName;
+
 	public void inputCredentials() {
 		Utils.waitForElementToBeVisible(createTeacherPageHeader, 10);
-
-		/*
-		 * Variables declared a to fill the form to create new teacher. Variables are
-		 * declared and initialised in the scope of this method, so that for a new
-		 * webDriver instance(when invocation count is >1) new random value will be
-		 * created. If they are declared at class level, Webdriver takes the old value
-		 */
-		String firstName = "Teacher" + properties.getProperty("currentDateForUsers")
-				+ RandomStringUtils.randomAlphabetic(4);
-		String lastName = RandomStringUtils.randomAlphabetic(3);
-		String emailOLP = firstName + "_" + lastName + properties.getProperty("emailDomain");
-		String userName = firstName;
-		String password = properties.getProperty("passwordToSet");
-		String staffId = firstName + "." + lastName;
 
 		Utils.sendData(firstNameOlpTeacher, firstName);
 		Utils.sendData(lastNameOlpTeacher, lastName);
