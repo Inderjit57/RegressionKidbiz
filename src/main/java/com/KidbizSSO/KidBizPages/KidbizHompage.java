@@ -8,29 +8,39 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.KidbizSSO.BasePackage.BaseClass;
+import com.KidbizSSO.Util.Utils;
 
 public class KidbizHompage extends BaseClass {
 
 	public KidbizHompage() {
 		PageFactory.initElements(wd, this);
+		waitForPageToLoad();
 	}
 
-	@FindBy(id = "school_selector")
+	@FindBy(css = "select[id='active_school']")
 	WebElement schoolSelector;
 
-	@FindBy()			//need locator
+	@FindBy(css = "select[id='active_pgm']")
+	WebElement chooseProgram;
+
+	@FindBy(css = "select[id='active_class'] option")
 	WebElement chooseClass;
 
+	@FindBy(id = "loginButton")
+	WebElement login;
+
 	public void selectSchool() {
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#active_school")));
-		WebElement kidbizIcon = wd.findElement(By.cssSelector("#active_school"));
-		kidbizIcon.click();
+//		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#active_school")));
+//		WebElement kidbizIcon = wd.findElement(By.cssSelector("#active_school"));
+//		kidbizIcon.click();
 		Select school = new Select(schoolSelector);
 		school.selectByVisibleText("Schoology Luda's Test School K only");
 	}
 
-	@FindBy(id = "loginButton")
-	WebElement login;
+	public void chooseProgramAndClass() {
+		Utils.selectFromDropDownUsingVisibleText(chooseProgram, "Literacy MS");
+		Utils.selectFromDropDownUsingVisibleText(chooseClass, "N Sveta course 9 K only");
+	}
 
 	public UserAccount clickLoginBtn() {
 		login.click();
