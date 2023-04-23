@@ -63,10 +63,10 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 	 * webDriver instance(when invocation count is >1) new random value will be
 	 * created. If they are declared at class level, Webdriver takes the old value
 	 */
-	public static String firstName = "teacher" + properties.getProperty("currentDateForUsers")
+	public static String firstName = "OLtch" + properties.getProperty("currentDateForUsers")
 			+ RandomStringUtils.randomAlphabetic(4);
 	public static String lastName = RandomStringUtils.randomAlphabetic(3);
-	public static String emailOLP = firstName + "_" + lastName + properties.getProperty("emailDomain");
+	public static String emailOLP = firstName + "_" + lastName + properties.getProperty("mhEmailDomain");
 	String userName = firstName;
 	public static String password = properties.getProperty("passwordToSet");
 	String staffId = firstName + "." + lastName;

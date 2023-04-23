@@ -19,24 +19,24 @@ public class NewTeacherAcoountHomepage extends BaseClass {
 	}
 
 	@FindBy(css = ".filter-group button[title='Create a Class']")
-	WebElement createClassBtn;
+	private WebElement createClassBtn;
 
 	@FindBy(xpath = "//div[@role='tablist']/ div/span[text()=' Achieve3000 Literacy ']")
-	WebElement productAch3000Lit;
+	private WebElement productAch3000Lit;
 
 	@FindBy(css = "#className")
-	WebElement className;
+	private WebElement className;
 
 	@FindBy(css = "select[id='subject']")
-	WebElement subject;
+	private WebElement subject;
 
 	@FindBy(css = "select[id='gradeLevel']")
-	WebElement gradeLevel;
+	private WebElement gradeLevel;
 
 	@FindBy(css = "#dlg-submit-button")
-	WebElement complete;
+	private WebElement complete;
 
-	String randomClassName = "class" + properties.getProperty("currentDateForUsers")
+	String randomClassName = "OLCls" + properties.getProperty("currentDateForUsers")
 			+ RandomStringUtils.randomAlphabetic(4);
 
 	private int randomSubjectSelection;
@@ -64,6 +64,7 @@ public class NewTeacherAcoountHomepage extends BaseClass {
 		randomSubjectSelection = randomIntForSubjectSelection.nextInt(subjectList.size());
 
 		Utils.selectFromDropDownUsingIndex(subject, randomSubjectSelection);
+		Utils.waitForElementToBeSelectable(subject, Utils.Explicit_Wait);
 	}
 
 	public void selectGrade() {
