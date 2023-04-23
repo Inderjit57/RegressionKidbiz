@@ -35,7 +35,7 @@ public class OLPCreateNewTeacherSingleSchAndClassTest extends BaseClass {
 	@Test(invocationCount = 1)
 	public void createNewOLPTeacherTest() throws Exception {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
-		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("canvasUrl"),
+		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("mhURL"),
 				"Not a valid Page. Expecting Canvas Login Page");
 		olpLoginPage.inputEmailPassword();
 
@@ -62,10 +62,11 @@ public class OLPCreateNewTeacherSingleSchAndClassTest extends BaseClass {
 		newTeacherAcountHomepage.selectSubject();
 		newTeacherAcountHomepage.selectGrade();
 		newTeacherAcountHomepage.clickComplete();
-
+		
+		softAssert.assertAll();
 	}
 
-	@AfterMethod(enabled = false)
+	@AfterMethod(enabled = true)
 	public void tearDown() {
 
 		wd.quit();
