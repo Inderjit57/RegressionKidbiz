@@ -39,6 +39,11 @@ public class Utils extends BaseClass {
 		waitForElementToBeClickable(element, waitForSeconds).submit();
 	}
 
+	// Get Text
+	public static void getText(WebElement element) {
+		waitForElementToBeVisible(element, waitForSeconds).getText();
+	}
+
 	// Send Keys
 	public static void sendData(WebElement element, String text) {
 		waitForElementToBeVisible(element, waitForSeconds).sendKeys(text);
@@ -66,12 +71,12 @@ public class Utils extends BaseClass {
 		}
 
 	}
-	
+
 	public static void moveToElement(WebElement element) {
 		actions.moveToElement(element).build().perform();
-		
+
 	}
-	
+
 	public static void actionClick(WebElement element) {
 		actions.click(element).perform();
 	}
@@ -85,11 +90,12 @@ public class Utils extends BaseClass {
 	public static WebElement waitForElementToBeVisible(WebElement element, int timeOutInSeconds) {
 		return new WebDriverWait(wd, timeOutInSeconds).until(ExpectedConditions.visibilityOf(element));
 	}
-	
+
 	// Explicit wait: Wait for element to be Visible
-		public static Boolean waitForTextToBePresestInElementValue( int timeOutInSeconds,WebElement element, String text) {
-			return new WebDriverWait(wd, timeOutInSeconds).until(ExpectedConditions.textToBePresentInElementValue(element,text));
-		}
+	public static Boolean waitForTextToBePresestInElementValue(int timeOutInSeconds, WebElement element, String text) {
+		return new WebDriverWait(wd, timeOutInSeconds)
+				.until(ExpectedConditions.textToBePresentInElementValue(element, text));
+	}
 
 	// Explicit wait: Wait for element to be Selectable
 	public static Boolean waitForElementToBeSelectable(WebElement element, int timeOutInSeconds) {
