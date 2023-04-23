@@ -1,4 +1,4 @@
-package com.KidbizSSO.Method.Schoology;
+package com.KidbizSSO.Method.Schoology.SchoologySSO;
 
 import java.util.Set;
 
