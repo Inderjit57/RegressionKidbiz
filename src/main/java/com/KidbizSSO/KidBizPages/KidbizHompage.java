@@ -1,10 +1,8 @@
 package com.KidbizSSO.KidBizPages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.KidbizSSO.BasePackage.BaseClass;
@@ -23,16 +21,13 @@ public class KidbizHompage extends BaseClass {
 	@FindBy(css = "select[id='active_pgm']")
 	WebElement chooseProgram;
 
-	@FindBy(css = "select[id='active_class'] option")
+	@FindBy(css = "select[id='active_class']")
 	WebElement chooseClass;
 
 	@FindBy(id = "loginButton")
 	WebElement login;
 
 	public void selectSchool() {
-//		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#active_school")));
-//		WebElement kidbizIcon = wd.findElement(By.cssSelector("#active_school"));
-//		kidbizIcon.click();
 		Select school = new Select(schoolSelector);
 		school.selectByVisibleText("Schoology Luda's Test School K only");
 	}
