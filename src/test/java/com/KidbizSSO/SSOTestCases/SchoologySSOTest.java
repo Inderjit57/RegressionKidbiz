@@ -1,11 +1,7 @@
-package com.KidbizSSO.TestCases;
-
-import java.util.Set;
+package com.KidbizSSO.SSOTestCases;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -14,11 +10,11 @@ import org.testng.asserts.SoftAssert;
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.KidBizPages.KidbizHompage;
 import com.KidbizSSO.KidBizPages.UserAccount;
-import com.KidbizSSO.Method.Schoology.TestCoursePage_ssoToKidbiz;
 import com.KidbizSSO.Method.Schoology.Schoology;
 import com.KidbizSSO.Method.Schoology.SchoologyHomepage;
+import com.KidbizSSO.Method.Schoology.SchoologySSO.TestCoursePage_ssoToKidbiz;
 
-public class SchoologyTest extends BaseClass {
+public class SchoologySSOTest extends BaseClass {
 
 	Schoology schoology;
 	SchoologyHomepage homepage;
@@ -36,29 +32,29 @@ public class SchoologyTest extends BaseClass {
 	}
 
 	@Test
-	public void schoologyPage() {
+	public void schoologySSOTest() {
 
 		schoology.email(properties.getProperty("emailSchoology"));
 		schoology.pass(properties.getProperty("passSchoology"));
 		homepage = schoology.signIn();
 		// need to put assertion check for this page
-//		sf.assertEquals(null, null, null);
+		WebElement schHomepageTitle = wd.findElement(By.cssSelector(".site-navigation a[title='Home']"));
+		sf.assertEquals(schHomepageTitle.getText(), "Home", "Schoology Homepage not found");
 
 		// Redirecting to course page
 		testCoursePage_ssoToKidbiz = homepage.clickOnCourse();
 		testCoursePage_ssoToKidbiz.clickA3KQA();
 		kidbizHompage = testCoursePage_ssoToKidbiz.framebusting();
-		
-//		sf.assertEquals(wd.getCurrentUrl(), properties.getProperty("schoologyUrl"),"Error while loading Kidbiz Page");
+
 		kidbizHompage.selectSchool();
 		kidbizHompage.chooseProgramAndClass();
 		userAccount = kidbizHompage.clickLoginBtn();
-		sf.assertEquals(wd.getCurrentUrl(),"https://core-qa-portal.achieve3000.com/home","wrong Kidbiz URl");
-		
+		sf.assertEquals(wd.getCurrentUrl(), "https://core-qa-portal.achieve3000.com/home", "wrong Kidbiz URl");
 
+		sf.assertAll();
 	}
 
-	@AfterMethod(enabled = false)
+	@AfterMethod(enabled = true)
 	public void teardown() {
 		wd.quit();
 	}
