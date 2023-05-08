@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
+import com.KidbizSSO.Util.WriteIntoExcel;
 
 public class CanvasCreateUserPage extends BaseClass {
 
@@ -61,7 +62,7 @@ public class CanvasCreateUserPage extends BaseClass {
 	@FindBy(css = "form[aria-label='Add a New User'] div")
 	private WebElement addNewUserFormWindow;
 
-	public void fillForm(String role) {
+	public void fillForm(String role) throws Exception {
 		Utils.waitForElementToBeVisible(addNewUserFormWindow, 10);
 
 		/*
@@ -85,12 +86,14 @@ public class CanvasCreateUserPage extends BaseClass {
 			Utils.javascriptClick(fullName);
 
 			System.out.println("Full Name: " + studentEnterFullName + "\nSIS ID: " + studentEnterSISID);
+			WriteIntoExcel.writeNewUserName(studentEnterFullName);
 
 			Utils.sendData(fullName, studentEnterFullName);
 			sortableName.clear();
 			Utils.sendData(sortableName, studentEnterSortable);
 			Utils.sendData(email, studentEnterEmail);
 			Utils.sendData(sisID, studentEnterSISID);
+			break;
 		case "teacher":
 			String teacherFirstName = "teach" + properties.getProperty("currentDateForUsers")
 					+ RandomStringUtils.randomAlphabetic(4); // Generic for Student and Teacher Account
@@ -105,13 +108,14 @@ public class CanvasCreateUserPage extends BaseClass {
 			Utils.javascriptClick(fullName);
 
 			System.out.println("Full Name: " + teacherEnterFullName + "\nSIS ID: " + teacherEnterSISID);
+			WriteIntoExcel.writeNewUserName(teacherEnterFullName);
 
 			Utils.sendData(fullName, teacherEnterFullName);
 			sortableName.clear();
 			Utils.sendData(sortableName, teacherEnterSortable);
 			Utils.sendData(email, teacherEnterEmail);
 			Utils.sendData(sisID, teacherEnterSISID);
-
+			break;
 		default:
 			System.out.println("Please specify a correct role: teacher or student");
 		}
