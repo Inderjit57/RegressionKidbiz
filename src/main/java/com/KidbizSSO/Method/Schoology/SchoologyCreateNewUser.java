@@ -158,6 +158,7 @@ public class SchoologyCreateNewUser extends BaseClass {
 
 			System.out.println("UserName: " + teacherfirstName);
 			System.out.println("Email: " + teacheremail + "\nPassword: " + teacherPassword);
+			break;
 		default:
 			System.out.println("Please specify the correct role");
 		}

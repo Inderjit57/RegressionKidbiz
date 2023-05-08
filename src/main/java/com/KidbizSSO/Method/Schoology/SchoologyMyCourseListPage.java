@@ -55,8 +55,7 @@ public class SchoologyMyCourseListPage extends BaseClass {
 	private WebElement createBtn;
 
 	// select Random School from the list and send it to UI
-	private String[] schoologySchoolName = { "SCHOOLOGY Luda's Test School K+S+A", "SCHOOLOGY Luda's Test School K+S+M",
-			"SCHOOLOGY Luda's Test School K+M", "SCHOOLOGY Luda's Test School K+A",
+	private String[] schoologySchoolName = { "SCHOOLOGY Luda's Test School K+M", "SCHOOLOGY Luda's Test School K+A",
 			"SCHOOLOGY Luda's Test School K only", "SCHOOLOGY Luda's Test School K+S" };
 	Random randomSchoologySchool;
 	private String pickSchoologySchool;
