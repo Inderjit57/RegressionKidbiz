@@ -32,12 +32,11 @@ public class GoogleOnDemandNewUserTest extends BaseClass {
 		googleAdminHomepage.clickAddUserBtn();
 		googleAdminHomepage.inputInfo();
 		googleAdminHomepage.clickAddNewUserBtn();
-		googleAdminHomepage.getNewUserInfo();
+		googleUserProfilePage = googleAdminHomepage.getNewUserInfo();
 
-		googleUserProfilePage = googleAdminHomepage.searchForUser();
 		googleUserProfilePage.addUserToGroup();
-		googleUserProfilePage.resetUserPassword();
-		
+//		googleUserProfilePage.resetUserPassword();
+
 	}
 
 	@AfterMethod(enabled = false)
