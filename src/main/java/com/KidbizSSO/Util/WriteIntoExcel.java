@@ -34,7 +34,7 @@ public class WriteIntoExcel extends BaseClass {
 
 			XSSFSheet sheet = xsf.getSheetAt(0);
 
-			for (int i = 1; i <= 20; i++) {
+			for (int i = 1; i <= 100; i++) {
 				row = sheet.getRow(i);
 				if (row == null) {
 					for (int j = 2; j <= 20; j++) {
