@@ -24,7 +24,7 @@ public class SchoologyCreateNewUserTest extends BaseClass {
 	}
 
 	@Test(invocationCount = 1, enabled = true)
-	public void createSchoologyUserTest() {
+	public void createSchoologyUserTest() throws Exception {
 		schoology.email(properties.getProperty("emailSchoology"));
 		schoology.pass(properties.getProperty("passSchoology"));
 		homepage = schoology.signIn();
