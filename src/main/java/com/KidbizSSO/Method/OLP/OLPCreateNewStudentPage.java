@@ -58,8 +58,8 @@ public class OLPCreateNewStudentPage extends BaseClass {
 	@FindBy(css = "button[data-automation-id='student-create-submit-button']")
 	private WebElement createBtn;
 
-	private String[] a3kSchool = { "A3K LITERACY TEST SCHOOL 3" };
-//	 "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2",
+	private String[] a3kSchool = { "MANOR ELEMENTARY SCHOOL" };
+//	 "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2", WADE THOMAS SCHOOL
 	private String pickOlpSchool;
 
 	private int randomOLPGradeSelection;
@@ -73,7 +73,7 @@ public class OLPCreateNewStudentPage extends BaseClass {
 		 * webDriver instance(when invocation count is >1) new random value will be
 		 * created. If they are declared at class level, Webdriver takes the old value
 		 */
-		String firstName = "OLStd" + properties.getProperty("currentDateForUsers")
+		String firstName = "Student" + properties.getProperty("currentDateForUsers")
 				+ RandomStringUtils.randomAlphabetic(4);
 		String lastName = RandomStringUtils.randomAlphabetic(3);
 		String emailOLP = firstName + "_" + lastName + properties.getProperty("emailDomain");

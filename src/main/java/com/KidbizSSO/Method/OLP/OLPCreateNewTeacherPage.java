@@ -26,7 +26,7 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 	private WebElement lastNameOlpTeacher;
 
 	@FindBy(css = "#email")
-	private WebElement emailOlpTeacher;
+	static WebElement emailOlpTeacher;
 
 	@FindBy(css = "#userName")
 	private WebElement userNameOlpTeacher;
@@ -52,18 +52,14 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 	@FindBy(xpath = "//button[@class='btn ngx-shared btn-primary btn btn-primary ms-2']")
 	private WebElement createBtn;
 
-	private String[] a3kSchool = { "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2",
-			"A3K LITERACY TEST SCHOOL 3" };
+//	private String[] a3kSchool = { "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2",
+//			"A3K LITERACY TEST SCHOOL 3" }; 
+//	WADE THOMAS SCHOOL/ MANOR ELEMENTARY SCHOOL / BROOKSIDE
+	private String[] a3kSchool = { "MANOR ELEMENTARY SCHOOL" };
 
 	private String pickOlpSchool;
 
-	/*
-	 * Variables declared a to fill the form to create new teacher. Variables are
-	 * declared and initialised in the scope of this method, so that for a new
-	 * webDriver instance(when invocation count is >1) new random value will be
-	 * created. If they are declared at class level, Webdriver takes the old value
-	 */
-	public static String firstName = "OLtch" + properties.getProperty("currentDateForUsers")
+	public static String firstName = "teacher" + properties.getProperty("currentDateForUsers")
 			+ RandomStringUtils.randomAlphabetic(4);
 	public static String lastName = RandomStringUtils.randomAlphabetic(3);
 	public static String emailOLP = firstName + "_" + lastName + properties.getProperty("mhEmailDomain");
@@ -72,6 +68,7 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 	String staffId = firstName + "." + lastName;
 
 	public void inputCredentials() {
+
 		Utils.waitForElementToBeVisible(createTeacherPageHeader, 10);
 
 		Utils.sendData(firstNameOlpTeacher, firstName);
@@ -84,6 +81,7 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 
 		System.out.println("UserName: " + firstName);
 		System.out.println("Email: " + emailOLP + "\nPassword: " + password);
+
 	}
 
 	public void clickAffiliations() throws Exception {
