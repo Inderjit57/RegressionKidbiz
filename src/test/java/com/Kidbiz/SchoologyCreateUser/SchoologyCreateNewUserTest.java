@@ -23,7 +23,7 @@ public class SchoologyCreateNewUserTest extends BaseClass {
 		schoology = new Schoology();
 	}
 
-	@Test(invocationCount = 3, enabled = true)
+	@Test(invocationCount = 1, enabled = true)
 	public void createSchoologyUserTest() {
 		schoology.email(properties.getProperty("emailSchoology"));
 		schoology.pass(properties.getProperty("passSchoology"));
@@ -33,7 +33,7 @@ public class SchoologyCreateNewUserTest extends BaseClass {
 		schoologyCreateNewUser = homepage.clickUserManagement();
 		schoologyCreateNewUser.clickCreateUserLeftNavigation();
 		schoologyCreateNewUser.selectSchool();
-		schoologyCreateNewUser.clickStudentRole();
+		schoologyCreateNewUser.clickStudentRole();// need to differentiate teacher and student option
 		schoologyCreateNewUser.clickEmailConflicts();
 		schoologyCreateNewUser.fillcredentials(properties.getProperty("accountToCreate"));
 		schoologyCreateNewUser.clickCreateUserSubmitBtn();

@@ -25,7 +25,7 @@ public class SchoologyCreateNewCourseTest extends BaseClass {
 		schoology = new Schoology();
 	}
 
-	@Test(invocationCount = 2)
+	@Test(invocationCount = 1)
 	public void createNewCourseSchoologyTest() throws Exception {
 		schoology.email(properties.getProperty("emailSchoology"));
 		schoology.pass(properties.getProperty("passSchoology"));
