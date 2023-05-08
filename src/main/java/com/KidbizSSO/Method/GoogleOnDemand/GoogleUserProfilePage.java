@@ -18,7 +18,7 @@ public class GoogleUserProfilePage extends BaseClass {
 	}
 
 	// Add user to group
-	@FindBy(xpath = "//li[@id='node-N745-51641']//a[text()='Groups']")
+	@FindBy(xpath = "//li[@id='node-N333-2899837349']//a[text()='Groups']")
 	private WebElement groupBtn;
 	
 	@FindBy(css = "tr[data-group-name='Classroom Teachers'] div[data-tooltip='Add members']")
@@ -58,7 +58,8 @@ public class GoogleUserProfilePage extends BaseClass {
 		
 		Utils.sendData(findUserField, GoogleAdminHomepage.firstName);
 		Utils.waitForElementToBeClickable(searchUserClick, Utils.Explicit_Wait);
-		Utils.clickOnElement(addToGroupBtn);		
+		Utils.clickOnElement(searchUserClick);
+		Utils.clickOnElement(addToGroupBtn);	
 	}
 	
 	public void resetUserPassword() {

@@ -36,20 +36,13 @@ public class GoogleAdminHomepage extends BaseClass {
 	private WebElement newUserName;
 
 	@FindBy(css = "div[class='oxkSlb'] div:nth-of-type(2) div[role='button']")
-	WebElement doneBtn1;
+	private WebElement doneBtn1;
 
 	// Done Button on copy password window
 	@FindBy(css = "span[class='PbnGhe oJeWuf fb0g6 MR2XUb'] div[class='nL3Jpb J9fJmf'] span[class='CwaK9']")
-	WebElement doneBtn2;
+	private WebElement doneBtn2;
 
-	// Search for newUSer
-	@FindBy(css = "input[aria-label='Search for users, groups or settings']")
-	WebElement searchBar;
-
-	@FindBy(xpath = "//div[@class=' tWfTvb'] /div[@role='listbox']/ div/div[1]/div[2]")
-	private WebElement searchItem;
-
-	public static String firstName = "Googletch" + properties.getProperty("currentDateForUsers")
+	public static String firstName = "GoogleUser" + properties.getProperty("currentDateForUsers")
 			+ RandomStringUtils.randomAlphabetic(4);
 
 	public static String lastName = RandomStringUtils.randomAlphabetic(3);
@@ -62,27 +55,20 @@ public class GoogleAdminHomepage extends BaseClass {
 		Utils.waitForElementToBeVisible(firstNameField, Utils.Explicit_Wait);
 		Utils.sendData(firstNameField, firstName);
 		Utils.sendData(lastNameField, lastName);
-		System.out.println("FirstName: "+ firstName);
+		System.out.println("FirstName: " + firstName);
 	}
 
 	public void clickAddNewUserBtn() {
 		Utils.clickOnElement(addNewUserBtn);
 	}
 
-	public void getNewUserInfo() {
+	public GoogleUserProfilePage getNewUserInfo() throws Exception {
 		Utils.waitForElementToBeVisible(newUserName, Utils.Explicit_Wait);
-		System.out.println("User Email: " + newUserName.getText());
+
+		String newUserEmail = newUserName.getText().substring(10);
+		System.out.println("User Email: " + newUserEmail);
 		Utils.clickOnElement(doneBtn1);
 		Utils.clickOnElement(doneBtn2);
-		
-	}
-
-	public GoogleUserProfilePage searchForUser() throws Exception{
-		Thread.sleep(1500);
-		Utils.sendData(searchBar, firstName);
-		Utils.waitForTextToBePresestInElementValue(Utils.Explicit_Wait, searchBar, firstName);
-		Utils.waitForElementToBeClickable(searchBar, Utils.Explicit_Wait);
-		Utils.clickOnElement(searchItem);
 
 		return new GoogleUserProfilePage();
 	}
