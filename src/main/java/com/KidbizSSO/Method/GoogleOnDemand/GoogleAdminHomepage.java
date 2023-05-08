@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
+import com.KidbizSSO.Util.WriteIntoExcel;
 
 public class GoogleAdminHomepage extends BaseClass {
 	/*
@@ -69,6 +70,8 @@ public class GoogleAdminHomepage extends BaseClass {
 		System.out.println("User Email: " + newUserEmail);
 		Utils.clickOnElement(doneBtn1);
 		Utils.clickOnElement(doneBtn2);
+		
+		WriteIntoExcel.writeNewUserName(newUserEmail);
 
 		return new GoogleUserProfilePage();
 	}

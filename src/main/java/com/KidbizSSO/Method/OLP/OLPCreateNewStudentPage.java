@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
+import com.KidbizSSO.Util.WriteIntoExcel;
 
 public class OLPCreateNewStudentPage extends BaseClass {
 
@@ -127,6 +128,7 @@ public class OLPCreateNewStudentPage extends BaseClass {
 
 		System.out.println("UserName: " + firstName);
 		System.out.println("Email: " + emailOLP + "\nPassword: " + password);
+		WriteIntoExcel.writeNewUserName(emailOLP);
 	}
 
 	public void clickCreate() throws Exception {

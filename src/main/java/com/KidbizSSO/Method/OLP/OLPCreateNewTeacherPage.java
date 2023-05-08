@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
+import com.KidbizSSO.Util.WriteIntoExcel;
 
 public class OLPCreateNewTeacherPage extends BaseClass {
 	public OLPCreateNewTeacherPage() {
@@ -67,7 +68,7 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 	public static String password = properties.getProperty("passwordToSet");
 	String staffId = firstName + "." + lastName;
 
-	public void inputCredentials() {
+	public void inputCredentials() throws Exception {
 
 		Utils.waitForElementToBeVisible(createTeacherPageHeader, 10);
 
@@ -81,6 +82,7 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 
 		System.out.println("UserName: " + firstName);
 		System.out.println("Email: " + emailOLP + "\nPassword: " + password);
+		WriteIntoExcel.writeNewUserName(emailOLP);
 
 	}
 

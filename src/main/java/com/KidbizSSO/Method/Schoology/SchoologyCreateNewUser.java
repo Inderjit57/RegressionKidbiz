@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
+import com.KidbizSSO.Util.WriteIntoExcel;
 
 public class SchoologyCreateNewUser extends BaseClass {
 
@@ -112,7 +113,7 @@ public class SchoologyCreateNewUser extends BaseClass {
 		Utils.clickOnElement(emailConflicts);
 	}
 
-	public void fillcredentials(String role) {
+	public void fillcredentials(String role) throws Exception {
 		/*
 		 * Variables declared a to fill the form to create new teacher. Variables are
 		 * declared and initialised in the scope of this method, so that for a new
@@ -138,6 +139,7 @@ public class SchoologyCreateNewUser extends BaseClass {
 
 			System.out.println("UserName: " + studentFirstName);
 			System.out.println("Email: " + studentEmail + "\nPassword: " + studentPassword);
+			WriteIntoExcel.writeNewUserName(studentEmail);
 			break;
 
 		case "teacher":
@@ -158,6 +160,7 @@ public class SchoologyCreateNewUser extends BaseClass {
 
 			System.out.println("UserName: " + teacherfirstName);
 			System.out.println("Email: " + teacheremail + "\nPassword: " + teacherPassword);
+			WriteIntoExcel.writeNewUserName(teacheremail);
 			break;
 		default:
 			System.out.println("Please specify the correct role");
