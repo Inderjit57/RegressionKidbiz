@@ -1,4 +1,4 @@
-package com.Kidbiz.OLPTest;
+package com.Kidbiz.OLPTest.UAT;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -8,15 +8,17 @@ import org.testng.asserts.SoftAssert;
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Method.OLP.AdminAccountHomepage;
 import com.KidbizSSO.Method.OLP.AdministratorPage;
+import com.KidbizSSO.Method.OLP.ConnectEdDashboardPage;
 import com.KidbizSSO.Method.OLP.OLPCreateNewStudentPage;
-
 import com.KidbizSSO.Method.OLP.OLPLoginPage;
 
-public class OLPCreateNewStudentTest extends BaseClass {
+public class CreateNewStudentUATTest extends BaseClass {
 	OLPLoginPage olpLoginPage;
+	ConnectEdDashboardPage connectEdDashboardPage;
 	AdminAccountHomepage adminAccountHomepage;
 	AdministratorPage administratorPage;
 	OLPCreateNewStudentPage olpCreateNewStudentPage;
+
 	SoftAssert softAssert = new SoftAssert();
 
 	@BeforeMethod
@@ -30,11 +32,11 @@ public class OLPCreateNewStudentTest extends BaseClass {
 	@Test(invocationCount = 2)
 	public void createNewOLPStudentTest() throws Exception {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
-		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("canvasUrl"),
-				"Not a valid Page. Expecting Canvas Login Page");
+		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("mhURL"),
+				"Not a valid Page. Expecting MH Login Page");
 		olpLoginPage.inputEmailPassword();
-
-		adminAccountHomepage = olpLoginPage.clickLoginBtn();
+		connectEdDashboardPage = olpLoginPage.loginToConnectEDdash();
+		adminAccountHomepage = connectEdDashboardPage.clickA3KLit();
 		adminAccountHomepage.clickDropdown();
 
 		administratorPage = adminAccountHomepage.clickAdministrator();
