@@ -15,12 +15,12 @@ import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
 import com.KidbizSSO.Util.WriteIntoExcel;
 
-public class SchoologyCreateNewStudent extends BaseClass {
+public class SchoologyCreateNewTeacher extends BaseClass {
 
 	/*
 	 * User Management page to create users
 	 */
-	public SchoologyCreateNewStudent() {
+	public SchoologyCreateNewTeacher() {
 		PageFactory.initElements(wd, this);
 		waitForPageToLoad();
 	}
@@ -101,43 +101,44 @@ public class SchoologyCreateNewStudent extends BaseClass {
 
 	}
 
-	public void clickStudentRole() {
-		Utils.selectFromDropDownUsingVisibleText(role, "Student");
+	public void clickTeacherRole() {
+		Utils.selectFromDropDownUsingVisibleText(role, "Teacher");
 	}
 
 	public void clickEmailConflicts() {
 		Utils.clickOnElement(emailConflicts);
 	}
 
-	public void fillStudentCredentials() throws Exception {
+	public void fillTeacherCredentials() throws Exception {
 		/*
 		 * Variables declared a to fill the form to create new teacher. Variables are
 		 * declared and initialised in the scope of this method, so that for a new
 		 * webDriver instance(when invocation count is >1) new random value will be
 		 * created. If they are declared at class level, Webdriver takes the old value
 		 */
-		String studentFirstName = "std" + properties.getProperty("currentDateForUsers")
+
+		String teacherfirstName = "teach" + properties.getProperty("currentDateForUsers")
 				+ RandomStringUtils.randomAlphabetic(4);
-		String studentLastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
-		String studentUserName = studentFirstName;
-		String studentEmail = studentFirstName + "_" + studentLastName + properties.getProperty("emailDomain");
-		String studentUniqueId = studentFirstName;
-		String studentPassword = properties.getProperty("passwordToSet");
+		String teacherlastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
+		String teacheruserName = teacherfirstName;
+		String teacheremail = teacherfirstName + "_" + teacherlastName + properties.getProperty("emailDomain");
+		String teacheruniqueId = teacherfirstName;
+		String teacherPassword = properties.getProperty("passwordToSet");
 
-		Utils.sendData(firstNameCell, studentFirstName);
-		Utils.sendData(lastNameCell, studentLastName);
-		Utils.sendData(userNameCell, studentUserName);
-		Utils.sendData(emailCell, studentEmail);
-		Utils.sendData(uniqueIDCell, studentUniqueId);
-		Utils.sendData(passwordCell, studentPassword);
+		Utils.sendData(firstNameCell, teacherfirstName);
+		Utils.sendData(lastNameCell, teacherlastName);
+		Utils.sendData(userNameCell, teacheruserName);
+		Utils.sendData(emailCell, teacheremail);
+		Utils.sendData(uniqueIDCell, teacheruniqueId);
+		Utils.sendData(passwordCell, teacherPassword);
 
-		System.out.println("UserName: " + studentFirstName);
-		System.out.println("Email: " + studentEmail + "\nPassword: " + studentPassword);
-		WriteIntoExcel.writeNewUserName(studentEmail);
+		System.out.println("UserName: " + teacherfirstName);
+		System.out.println("Email: " + teacheremail + "\nPassword: " + teacherPassword);
+		WriteIntoExcel.writeNewUserName(teacheremail);
 
 	}
 
-	public void clickSubmitBtnForStudent() {
+	public void clickCreateUserSubmitBtn() {
 		Utils.submitInfo(createUserBtnSubmitForm);
 	}
 

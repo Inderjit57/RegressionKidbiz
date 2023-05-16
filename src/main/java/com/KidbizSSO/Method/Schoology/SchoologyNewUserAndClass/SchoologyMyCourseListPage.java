@@ -1,4 +1,4 @@
-package com.KidbizSSO.Method.Schoology;
+package com.KidbizSSO.Method.Schoology.SchoologyNewUserAndClass;
 
 import java.util.List;
 import java.util.Random;

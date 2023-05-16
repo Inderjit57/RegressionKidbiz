@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.KidbizSSO.BasePackage.BaseClass;
+import com.KidbizSSO.Method.Schoology.SchoologyNewUserAndClass.SchoologyCreateNewStudent;
+import com.KidbizSSO.Method.Schoology.SchoologyNewUserAndClass.SchoologyCreateNewTeacher;
 import com.KidbizSSO.Method.Schoology.SchoologySSO.TestCoursePage_ssoToKidbiz;
 import com.KidbizSSO.Util.Utils;
 
@@ -44,8 +46,12 @@ public class SchoologyHomepage extends BaseClass {
 		Utils.clickOnElement(toolsBtn);
 	}
 	
-	public SchoologyCreateNewUser clickUserManagement() {
+	public SchoologyCreateNewTeacher clickUserManagementNewTeacher() {
 		Utils.clickOnElement(userManagement);
-		return new SchoologyCreateNewUser();
+		return new SchoologyCreateNewTeacher();
+	}
+	public SchoologyCreateNewStudent clickUserManagementNewStudent() {
+		Utils.clickOnElement(userManagement);
+		return new SchoologyCreateNewStudent();
 	}
 }

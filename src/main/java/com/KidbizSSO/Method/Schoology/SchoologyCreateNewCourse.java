@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.KidbizSSO.BasePackage.BaseClass;
+import com.KidbizSSO.Method.Schoology.SchoologyNewUserAndClass.SchoologyMyCourseListPage;
 import com.KidbizSSO.Util.Utils;
 
 public class SchoologyCreateNewCourse extends BaseClass {
