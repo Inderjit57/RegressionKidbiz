@@ -8,9 +8,9 @@ import org.testng.asserts.SoftAssert;
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Method.Canvas.CanvasAdminHomepage;
 import com.KidbizSSO.Method.Canvas.CanvasLoginPage;
-import com.KidbizSSO.Method.Canvas.CanvasNewClass;
+import com.KidbizSSO.Method.Canvas.CanvasNewClassAndUser.CanvasNewClass;
 
-public class CanvasAddNewCourse extends BaseClass {
+public class CanvasAddNewCourseTest extends BaseClass {
 
 	CanvasLoginPage canvasLoginPage;
 	CanvasAdminHomepage adminHomepage;
@@ -25,7 +25,7 @@ public class CanvasAddNewCourse extends BaseClass {
 		canvasLoginPage = new CanvasLoginPage();
 	}
 
-	@Test(invocationCount = 1)
+	@Test(invocationCount = 2)
 	public void canvasCreateNewCourseTest() throws Exception {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
 		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("canvasUrl"),
