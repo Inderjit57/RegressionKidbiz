@@ -9,12 +9,13 @@ import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Method.Schoology.Schoology;
 import com.KidbizSSO.Method.Schoology.SchoologyHomepage;
 import com.KidbizSSO.Method.Schoology.SchoologyNewUserAndClass.SchoologyCreateNewStudent;
+import com.KidbizSSO.Method.Schoology.SchoologyNewUserAndClass.SchoologyCreateNewTeacher;
 
-public class SchoologyCreateNewStudentTest extends BaseClass {
+public class SchoologyCreateNewTeacherTest extends BaseClass {
 
 	Schoology schoology;
 	SchoologyHomepage homepage;
-	SchoologyCreateNewStudent schoologyCreateNewStudent;
+	SchoologyCreateNewTeacher schoologyCreateNewTeacher;
 	SoftAssert softAssert = new SoftAssert();
 
 	@BeforeMethod
@@ -30,20 +31,20 @@ public class SchoologyCreateNewStudentTest extends BaseClass {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
 		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("schoologyUrl"),
 				"Not a valid Page. Expecting Schoology Login Page");
-		
+
 		schoology.email(properties.getProperty("emailSchoology"));
 		schoology.pass(properties.getProperty("passSchoology"));
 		homepage = schoology.signIn();
 		homepage.clickTools();
 
-		schoologyCreateNewStudent = homepage.clickUserManagementNewStudent();
-		schoologyCreateNewStudent.clickCreateUserLeftNavigation();
-		schoologyCreateNewStudent.selectSchool();
-		schoologyCreateNewStudent.clickStudentRole();
-		schoologyCreateNewStudent.clickEmailConflicts();
-		schoologyCreateNewStudent.fillStudentCredentials();
-		schoologyCreateNewStudent.clickSubmitBtnForStudent();
-		
+		schoologyCreateNewTeacher = homepage.clickUserManagementNewTeacher();
+		schoologyCreateNewTeacher.clickCreateUserLeftNavigation();
+		schoologyCreateNewTeacher.selectSchool();
+		schoologyCreateNewTeacher.clickTeacherRole();// need to differentiate teacher and student option
+		schoologyCreateNewTeacher.clickEmailConflicts();
+		schoologyCreateNewTeacher.fillTeacherCredentials();
+		schoologyCreateNewTeacher.clickCreateUserSubmitBtn();
+
 		softAssert.assertAll();
 
 	}
