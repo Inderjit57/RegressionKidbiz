@@ -53,17 +53,17 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 	@FindBy(xpath = "//button[@class='btn ngx-shared btn-primary btn btn-primary ms-2']")
 	private WebElement createBtn;
 
-//	private String[] a3kSchool = { "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2",
-//			"A3K LITERACY TEST SCHOOL 3" }; 
+	private String[] a3kSchool = { "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2",
+			"A3K LITERACY TEST SCHOOL 3" }; 
 //	WADE THOMAS SCHOOL/ MANOR ELEMENTARY SCHOOL / BROOKSIDE
-	private String[] a3kSchool = { "MANOR ELEMENTARY SCHOOL" };
+//	private String[] a3kSchool = { "MANOR ELEMENTARY SCHOOL" };
 
 	private String pickOlpSchool;
 
 	public static String firstName = "teacher" + properties.getProperty("currentDateForUsers")
 			+ RandomStringUtils.randomAlphabetic(4);
 	public static String lastName = RandomStringUtils.randomAlphabetic(3);
-	public static String emailOLP = firstName + "_" + lastName + properties.getProperty("mhEmailDomain");
+	public static String emailOLP = firstName + "_"+ properties.getProperty("mhEmailDomain");
 	String userName = firstName;
 	public static String password = properties.getProperty("passwordToSet");
 	String staffId = firstName + "." + lastName;

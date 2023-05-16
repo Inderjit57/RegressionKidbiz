@@ -59,7 +59,8 @@ public class OLPCreateNewStudentPage extends BaseClass {
 	@FindBy(css = "button[data-automation-id='student-create-submit-button']")
 	private WebElement createBtn;
 
-	private String[] a3kSchool = { "MANOR ELEMENTARY SCHOOL" };
+	private String[] a3kSchool = { "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2",
+			"A3K LITERACY TEST SCHOOL 3" };
 //	 "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2", WADE THOMAS SCHOOL
 	private String pickOlpSchool;
 
