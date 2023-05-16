@@ -1,4 +1,4 @@
-package com.KidbizSSO.Method.Canvas;
+package com.KidbizSSO.Method.Canvas.CanvasNewClassAndUser;
 
 import java.util.Random;
 
@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Util.Utils;
+import com.KidbizSSO.Util.WriteIntoExcel;
 
 public class CanvasNewClass extends BaseClass {
 	/*
@@ -54,7 +55,7 @@ public class CanvasNewClass extends BaseClass {
 
 	}
 
-	public void inputCourseAndReferenceCode() {
+	public void inputCourseAndReferenceCode() throws Exception {
 		Utils.waitForElementToBeVisible(addNewCourseWindow, 10);
 		Utils.javascriptClick(courseName);
 		/*
@@ -67,6 +68,9 @@ public class CanvasNewClass extends BaseClass {
 				+ RandomStringUtils.randomAlphabetic(5);
 		Utils.sendData(courseName, enterCourseName);
 		System.out.println("Course Name: " + enterCourseName);
+		
+		// Send random user created to excel file using the following method
+		WriteIntoExcel.writeNewUserName(enterCourseName);
 
 		Utils.sendData(referenceCode, enterCourseName);
 
@@ -88,8 +92,7 @@ public class CanvasNewClass extends BaseClass {
 
 		Utils.clickOnElement(subaccount);
 		Thread.sleep(2000);
-		// Send random user created to excel file using the following method
-//		WriteIntoExcel.writeNewCourseName(CanvasNewClass.enterCourseName);
+
 	}
 
 	public void selectEnrolmentTerm() {

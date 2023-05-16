@@ -5,6 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.KidbizSSO.BasePackage.BaseClass;
+import com.KidbizSSO.Method.Canvas.CanvasNewClassAndUser.CanvasCreateNewTeacher;
+import com.KidbizSSO.Method.Canvas.CanvasNewClassAndUser.CanvasCreateStudent;
+import com.KidbizSSO.Method.Canvas.CanvasNewClassAndUser.CanvasNewClass;
 import com.KidbizSSO.Util.Utils;
 
 public class CanvasAdminHomepage extends BaseClass {
@@ -33,10 +36,16 @@ public class CanvasAdminHomepage extends BaseClass {
 	WebElement clickAL;
 
 	// This methods invokes CanvasCreateUserPage
-	public CanvasCreateUserPage clickOnAL() {
+	public CanvasCreateStudent clickOnALStudent() {
 		Utils.waitForElementToBeClickable(clickAL, Utils.waitForSeconds);
 		Utils.javascriptClick(clickAL);
-		return new CanvasCreateUserPage();
+		return new CanvasCreateStudent();
+	}
+	
+	public CanvasCreateNewTeacher clickOnALTeacher() {
+		Utils.waitForElementToBeClickable(clickAL, Utils.waitForSeconds);
+		Utils.javascriptClick(clickAL);
+		return new CanvasCreateNewTeacher();
 	}
 
 	// This method invokes CanvasNewClass
