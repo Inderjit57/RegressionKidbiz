@@ -26,7 +26,7 @@ public class WriteIntoExcel extends BaseClass {
 
 	public static void writeNewUserName(String dataReceive) throws Exception {
 		try {
-			File src = new File("C:\\Everything\\NewUsers.xlsx");
+			File src = new File(properties.getProperty("excelFilePathForCanvas"));
 
 			FileInputStream fis = new FileInputStream(src);
 
@@ -37,11 +37,12 @@ public class WriteIntoExcel extends BaseClass {
 			for (int i = 1; i <= 100; i++) {
 				row = sheet.getRow(i);
 				if (row == null) {
+					System.out.println("Row: " + i + " is blank");
 					for (int j = 2; j <= 20; j++) {
 						row = sheet.createRow(i);
 						cell = row.getCell(j);
 						if (cell == null || cell.getCellType() == CellType.BLANK) {
-							System.out.println("Cell is null");
+							System.out.println("Cell: " + j + " is blank");
 							cell = row.createCell(j);
 							cell.setCellValue(dataReceive);
 							break;
@@ -49,14 +50,13 @@ public class WriteIntoExcel extends BaseClass {
 							System.out.println("Cell is not null");
 							continue;
 						}
+						break;
 					}
 
 				} else if (row != null) {
 					continue;
 				}
-
 				break;
-
 			}
 
 			FileOutputStream fos = new FileOutputStream(src);
