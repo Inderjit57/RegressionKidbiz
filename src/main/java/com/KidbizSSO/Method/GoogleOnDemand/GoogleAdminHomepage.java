@@ -43,10 +43,9 @@ public class GoogleAdminHomepage extends BaseClass {
 	@FindBy(css = "span[class='PbnGhe oJeWuf fb0g6 MR2XUb'] div[class='nL3Jpb J9fJmf'] span[class='CwaK9']")
 	private WebElement doneBtn2;
 
-	public static String firstName = "GoogleUser" + properties.getProperty("currentDateForUsers")
-			+ RandomStringUtils.randomAlphabetic(4);
+	public static String firstName = Utils.fakeFirstNameGenerator();
 
-	public static String lastName = RandomStringUtils.randomAlphabetic(3);
+	public static String lastName = Utils.fakeLastNameGenerator() + RandomStringUtils.randomAlphabetic(2);
 
 	public void clickAddUserBtn() {
 		Utils.clickOnElement(AddUserBtn);
@@ -70,7 +69,7 @@ public class GoogleAdminHomepage extends BaseClass {
 		System.out.println("User Email: " + newUserEmail);
 		Utils.clickOnElement(doneBtn1);
 		Utils.clickOnElement(doneBtn2);
-		
+
 		WriteIntoExcel.writeNewUserName(newUserEmail);
 
 		return new GoogleUserProfilePage();

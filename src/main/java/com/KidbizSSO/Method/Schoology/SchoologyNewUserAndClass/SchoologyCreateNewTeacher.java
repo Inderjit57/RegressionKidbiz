@@ -117,9 +117,8 @@ public class SchoologyCreateNewTeacher extends BaseClass {
 		 * created. If they are declared at class level, Webdriver takes the old value
 		 */
 
-		String teacherfirstName = "teach" + properties.getProperty("currentDateForUsers")
-				+ RandomStringUtils.randomAlphabetic(4);
-		String teacherlastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
+		String teacherfirstName = Utils.fakeFirstNameGenerator();
+		String teacherlastName = Utils.fakeLastNameGenerator(); // Generic for Student and Teacher Account
 		String teacheruserName = teacherfirstName;
 		String teacheremail = teacherfirstName + "_" + teacherlastName + properties.getProperty("emailDomain");
 		String teacheruniqueId = teacherfirstName;

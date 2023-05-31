@@ -60,10 +60,9 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 
 	private String pickOlpSchool;
 
-	public static String firstName = "teacher" + properties.getProperty("currentDateForUsers")
-			+ RandomStringUtils.randomAlphabetic(4);
-	public static String lastName = RandomStringUtils.randomAlphabetic(3);
-	public static String emailOLP = firstName + "_"+ properties.getProperty("mhEmailDomain");
+	public static String firstName = Utils.fakeFirstNameGenerator();
+	public static String lastName = Utils.fakeLastNameGenerator();
+	public static String emailOLP = firstName + "."+lastName+ properties.getProperty("mhEmailDomain");
 	String userName = firstName;
 	public static String password = properties.getProperty("passwordToSet");
 	String staffId = firstName + "." + lastName;

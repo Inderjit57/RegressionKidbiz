@@ -64,11 +64,10 @@ public class CanvasNewClass extends BaseClass {
 		 * webDriver instance(when invocation count is >1) new random value will be
 		 * created. If they are declared at class level, Webdriver takes the old value
 		 */
-		String enterCourseName = "CanvasClass_" + properties.getProperty("currentDateForUsers")
-				+ RandomStringUtils.randomAlphabetic(5);
+		String enterCourseName = "Canvas"+Utils.fakeClassNameGenerator() + RandomStringUtils.randomAlphabetic(2);
 		Utils.sendData(courseName, enterCourseName);
 		System.out.println("Course Name: " + enterCourseName);
-		
+
 		// Send random user created to excel file using the following method
 		WriteIntoExcel.writeNewUserName(enterCourseName);
 

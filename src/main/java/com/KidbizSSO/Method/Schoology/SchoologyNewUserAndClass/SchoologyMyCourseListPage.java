@@ -95,8 +95,8 @@ public class SchoologyMyCourseListPage extends BaseClass {
 
 	public void inputCourseAndSection() {
 
-		String enterSchoologyCourseName = "SchoologyClass_" + properties.getProperty("currentDateForUsers")
-				+ RandomStringUtils.randomAlphabetic(4);
+		String enterSchoologyCourseName = "SchoologyClass_" + Utils.fakeClassNameGenerator()
+				+ RandomStringUtils.randomAlphabetic(2);
 
 		Utils.sendData(courseName, enterSchoologyCourseName);
 		System.out.println("CourseName: " + enterSchoologyCourseName);

@@ -19,8 +19,8 @@ public class AdminAccountHomepage extends BaseClass {
 		waitForPageToLoad();
 	}
 
-	@FindBy(css = "div[class='dropdown ng-tns-c109-0']")
-	WebElement dropdownMenu;
+	@FindBy(css = "div[class='user-name-container ng-star-inserted'] div")
+	private WebElement dropdownMenu;
 
 	public void clickDropdown() {
 		Utils.waitForElementToBeClickable(dropdownMenu, Utils.Explicit_Wait);

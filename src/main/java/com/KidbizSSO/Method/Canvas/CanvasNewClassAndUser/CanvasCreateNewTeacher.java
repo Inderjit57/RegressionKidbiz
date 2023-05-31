@@ -72,9 +72,8 @@ public class CanvasCreateNewTeacher extends BaseClass {
 		 * created. If they are declared at class level, Webdriver takes the old value
 		 */
 
-		String teacherFirstName = "teach" + properties.getProperty("currentDateForUsers")
-				+ RandomStringUtils.randomAlphabetic(4); // Generic for Student and Teacher Account
-		String teacherLastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
+		String teacherFirstName = Utils.fakeFirstNameGenerator(); // Generic for Student and Teacher Account
+		String teacherLastName = Utils.fakeLastNameGenerator() + RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
 		String teacherEnterFullName = teacherFirstName + ", " + teacherLastName; // Last name needs a space on
 																					// Canvas while creating user
 		String teacherEnterSortable = " " + teacherLastName; // Issue on Canvas side, it doesn't put the last name

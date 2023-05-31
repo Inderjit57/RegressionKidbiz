@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.KidbizSSO.BasePackage.BaseClass;
 import com.KidbizSSO.Method.OLP.NewTeachSingleSchAndClassEnrl.NewTeacherAccountPolicyConfirmPage;
+import com.KidbizSSO.Method.OLP.NewTeachSingleSchAndClassEnrl.NewTeacherConnectEdHomepage;
 import com.KidbizSSO.Util.Utils;
 
 public class OLPLoginPage extends BaseClass {
@@ -52,7 +53,13 @@ public class OLPLoginPage extends BaseClass {
 		Utils.clickOnElement(loginBtn);
 		return new NewTeacherAccountPolicyConfirmPage();
 	}
-
+	
+	public NewTeacherConnectEdHomepage loginToNewTeachConnectEDdash() {
+		Utils.clickOnElement(loginBtn);
+		return new NewTeacherConnectEdHomepage();
+	}
+	
+	//For UAT Admin account
 	public ConnectEdDashboardPage loginToConnectEDdash() {
 		Utils.clickOnElement(loginBtn);
 		return new ConnectEdDashboardPage();

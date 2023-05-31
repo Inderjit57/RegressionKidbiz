@@ -3,7 +3,6 @@ package com.KidbizSSO.Method.OLP;
 import java.util.List;
 import java.util.Random;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -61,7 +60,7 @@ public class OLPCreateNewStudentPage extends BaseClass {
 
 	private String[] a3kSchool = { "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2",
 			"A3K LITERACY TEST SCHOOL 3" };
-//	 "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2", WADE THOMAS SCHOOL
+//	  WADE THOMAS SCHOOL
 	private String pickOlpSchool;
 
 	private int randomOLPGradeSelection;
@@ -75,10 +74,9 @@ public class OLPCreateNewStudentPage extends BaseClass {
 		 * webDriver instance(when invocation count is >1) new random value will be
 		 * created. If they are declared at class level, Webdriver takes the old value
 		 */
-		String firstName = "Student" + properties.getProperty("currentDateForUsers")
-				+ RandomStringUtils.randomAlphabetic(4);
-		String lastName = RandomStringUtils.randomAlphabetic(3);
-		String emailOLP = firstName + "_" + lastName + properties.getProperty("emailDomain");
+		String firstName = Utils.fakeFirstNameGenerator();
+		String lastName = Utils.fakeLastNameGenerator();
+		String emailOLP = firstName + "_" + lastName + properties.getProperty("mhEmailDomain");
 		String userName = firstName;
 		String password = properties.getProperty("passwordToSet");
 		String studentId = firstName + "." + lastName;

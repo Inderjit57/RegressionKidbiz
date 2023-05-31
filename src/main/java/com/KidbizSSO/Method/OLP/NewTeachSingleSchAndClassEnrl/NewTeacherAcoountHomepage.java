@@ -36,8 +36,7 @@ public class NewTeacherAcoountHomepage extends BaseClass {
 	@FindBy(css = "#dlg-submit-button")
 	private WebElement complete;
 
-	String randomClassName = "OLCls" + properties.getProperty("currentDateForUsers")
-			+ RandomStringUtils.randomAlphabetic(4);
+	String randomClassName = "OLP" + Utils.fakeClassNameGenerator() + RandomStringUtils.randomAlphabetic(2);
 
 	private int randomSubjectSelection;
 	private int randomGradeSelection;

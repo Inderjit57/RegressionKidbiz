@@ -3,7 +3,6 @@ package com.KidbizSSO.Method.Schoology.SchoologyNewUserAndClass;
 import java.util.List;
 import java.util.Random;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebElement;
@@ -116,9 +115,8 @@ public class SchoologyCreateNewStudent extends BaseClass {
 		 * webDriver instance(when invocation count is >1) new random value will be
 		 * created. If they are declared at class level, Webdriver takes the old value
 		 */
-		String studentFirstName = "std" + properties.getProperty("currentDateForUsers")
-				+ RandomStringUtils.randomAlphabetic(4);
-		String studentLastName = RandomStringUtils.randomAlphabetic(3); // Generic for Student and Teacher Account
+		String studentFirstName = Utils.fakeFirstNameGenerator();
+		String studentLastName = Utils.fakeLastNameGenerator(); // Generic for Student and Teacher Account
 		String studentUserName = studentFirstName;
 		String studentEmail = studentFirstName + "_" + studentLastName + properties.getProperty("emailDomain");
 		String studentUniqueId = studentFirstName;
