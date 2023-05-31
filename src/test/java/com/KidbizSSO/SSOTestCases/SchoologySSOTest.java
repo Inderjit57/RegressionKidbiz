@@ -49,7 +49,7 @@ public class SchoologySSOTest extends BaseClass {
 		kidbizHompage.selectSchool();
 		kidbizHompage.chooseProgramAndClass();
 		userAccount = kidbizHompage.clickLoginBtn();
-		sf.assertEquals(wd.getCurrentUrl(), "https://core-qa-portal.achieve3000.com/home", "wrong Kidbiz URl");
+		sf.assertEquals(wd.getCurrentUrl(), properties.getProperty("kbQaUrl"), "*****Wrong Kidbiz Qa URl****");
 
 		sf.assertAll();
 	}
