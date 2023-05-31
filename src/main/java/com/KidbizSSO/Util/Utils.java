@@ -9,14 +9,29 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.KidbizSSO.BasePackage.BaseClass;
+import com.github.javafaker.Faker;
 
 public class Utils extends BaseClass {
+
+	public static Faker faker = new Faker();
 
 	public static Select select;
 	public static Actions actions = new Actions(wd);
 
 	public static int waitForSeconds = 10;
 	public static int Explicit_Wait = 15;
+
+	public static String fakeFirstNameGenerator() {
+		return faker.name().firstName().toString();
+	}
+
+	public static String fakeLastNameGenerator() {
+		return faker.name().lastName().toString();
+	}
+	
+	public static String fakeClassNameGenerator() {
+		return faker.space().planet().toString();
+	}
 
 	// Javascript Executor will got the WebElement to perform click function
 	public static void javascriptClick(WebElement element) {
