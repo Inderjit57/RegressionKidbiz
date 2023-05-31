@@ -40,7 +40,7 @@ public class SchoologyCreateNewTeacherTest extends BaseClass {
 		schoologyCreateNewTeacher = homepage.clickUserManagementNewTeacher();
 		schoologyCreateNewTeacher.clickCreateUserLeftNavigation();
 		schoologyCreateNewTeacher.selectSchool();
-		schoologyCreateNewTeacher.clickTeacherRole();// need to differentiate teacher and student option
+		schoologyCreateNewTeacher.clickTeacherRole();
 		schoologyCreateNewTeacher.clickEmailConflicts();
 		schoologyCreateNewTeacher.fillTeacherCredentials();
 		schoologyCreateNewTeacher.clickCreateUserSubmitBtn();
