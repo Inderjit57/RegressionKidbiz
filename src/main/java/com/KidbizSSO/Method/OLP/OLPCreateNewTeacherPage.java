@@ -2,7 +2,6 @@ package com.KidbizSSO.Method.OLP;
 
 import java.util.Random;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -44,7 +43,7 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 	@FindBy(css = "input[role='searchbox']")
 	private WebElement searchbox;
 
-	@FindBy(css = "label[class='ahe-ui-checkbox']")
+	@FindBy(css = "label[class='ahe-ui-checkbox'] span")
 	private WebElement schoolSearched;
 
 	@FindBy(css = "#staffIdInstructor")
@@ -53,16 +52,14 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 	@FindBy(xpath = "//button[@class='btn ngx-shared btn-primary btn btn-primary ms-2']")
 	private WebElement createBtn;
 
-	private String[] a3kSchool = { "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2",
-			"A3K LITERACY TEST SCHOOL 3" }; 
-//	WADE THOMAS SCHOOL/ MANOR ELEMENTARY SCHOOL / BROOKSIDE
-//	private String[] a3kSchool = { "MANOR ELEMENTARY SCHOOL" };
+	private String[] a3kSchool = { "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 4",
+			"A3K LITERACY TEST SCHOOL 5" };
 
 	private String pickOlpSchool;
 
-	public static String firstName = Utils.fakeFirstNameGenerator();
+	public static String firstName = Utils.fakeFirstNameGenerator()+"TCH";
 	public static String lastName = Utils.fakeLastNameGenerator();
-	public static String emailOLP = firstName + "."+lastName+ properties.getProperty("mhEmailDomain");
+	public static String emailOLP = firstName + "." + lastName + properties.getProperty("mhEmailDomain");
 	String userName = firstName;
 	public static String password = properties.getProperty("passwordToSet");
 	String staffId = firstName + "." + lastName;
@@ -98,8 +95,8 @@ public class OLPCreateNewTeacherPage extends BaseClass {
 		Utils.clickOnElement(orgOlpTeacher);
 		Utils.sendData(searchbox, pickOlpSchool);
 		Utils.waitForTextToBePresestInElementValue(Utils.Explicit_Wait, searchbox, pickOlpSchool);
-		Thread.sleep(500);
-		Utils.clickOnElement(schoolSearched);
+		Thread.sleep(1000);
+		Utils.javascriptClick(schoolSearched);
 
 		Utils.clickOnElement(orgOlpTeacher);
 

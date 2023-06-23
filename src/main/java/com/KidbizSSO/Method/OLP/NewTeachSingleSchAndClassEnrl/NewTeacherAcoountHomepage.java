@@ -18,11 +18,14 @@ public class NewTeacherAcoountHomepage extends BaseClass {
 		waitForPageToLoad();
 	}
 
-	@FindBy(css = ".filter-group button[title='Create a Class']")
+	@FindBy(css = "button[title='Create a Class']")
 	private WebElement createClassBtn;
 
-	@FindBy(xpath = "//div[@role='tablist']/ div/span[text()=' Achieve3000 Literacy ']")
+	@FindBy(xpath = "//fieldset[@data-automation-id='ilp-product-container']//div[1]/div//label")
 	private WebElement productAch3000Lit;
+	
+	@FindBy(css = "button[aria-label='Continue']")
+	private WebElement continuebtn;
 
 	@FindBy(css = "#className")
 	private WebElement className;
@@ -48,6 +51,7 @@ public class NewTeacherAcoountHomepage extends BaseClass {
 
 	public void clickProduct() {
 		Utils.clickOnElement(productAch3000Lit);
+		Utils.javascriptClick(continuebtn);
 	}
 
 	public void createClassInfo() {

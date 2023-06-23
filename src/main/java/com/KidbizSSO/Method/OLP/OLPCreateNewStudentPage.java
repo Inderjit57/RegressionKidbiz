@@ -60,7 +60,7 @@ public class OLPCreateNewStudentPage extends BaseClass {
 
 	private String[] a3kSchool = { "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2",
 			"A3K LITERACY TEST SCHOOL 3" };
-//	  WADE THOMAS SCHOOL
+
 	private String pickOlpSchool;
 
 	private int randomOLPGradeSelection;
@@ -76,7 +76,7 @@ public class OLPCreateNewStudentPage extends BaseClass {
 		 */
 		String firstName = Utils.fakeFirstNameGenerator();
 		String lastName = Utils.fakeLastNameGenerator();
-		String emailOLP = firstName + "_" + lastName + properties.getProperty("mhEmailDomain");
+		String emailOLP = firstName + "." + lastName + properties.getProperty("mhEmailDomain");
 		String userName = firstName;
 		String password = properties.getProperty("passwordToSet");
 		String studentId = firstName + "." + lastName;

@@ -54,8 +54,9 @@ public class OLPLoginPage extends BaseClass {
 		return new NewTeacherAccountPolicyConfirmPage();
 	}
 	
-	public NewTeacherConnectEdHomepage loginToNewTeachConnectEDdash() {
+	public NewTeacherConnectEdHomepage loginToNewTeachConnectEDdash() throws Exception {
 		Utils.clickOnElement(loginBtn);
+		Thread.sleep(1500);
 		return new NewTeacherConnectEdHomepage();
 	}
 	
