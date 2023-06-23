@@ -18,8 +18,8 @@ public class Utils extends BaseClass {
 	public static Select select;
 	public static Actions actions = new Actions(wd);
 
-	public static int waitForSeconds = 10;
-	public static int Explicit_Wait = 15;
+	public static int waitForSeconds = 20;
+	public static int Explicit_Wait = 25;
 
 	public static String fakeFirstNameGenerator() {
 		return faker.name().firstName().toString();
