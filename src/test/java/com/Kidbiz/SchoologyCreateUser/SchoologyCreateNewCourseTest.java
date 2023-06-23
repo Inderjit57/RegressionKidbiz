@@ -51,7 +51,7 @@ public class SchoologyCreateNewCourseTest extends BaseClass {
 
 	}
 
-	@AfterMethod(enabled = true)
+	@AfterMethod(enabled = false)
 	public void teardown() {
 		quitDriver();
 	}

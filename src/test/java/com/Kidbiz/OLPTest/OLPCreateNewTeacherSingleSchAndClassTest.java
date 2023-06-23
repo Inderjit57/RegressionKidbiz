@@ -52,9 +52,12 @@ public class OLPCreateNewTeacherSingleSchAndClassTest extends BaseClass {
 
 		wd.get(properties.getProperty("mhLogoutUrl"));
 		olpLoginPage.getEmailPasswordFromNewTeacherPage();
-//		newTeacherAccountPolicyConfirmPage = olpLoginPage.loginToNewTeacher();
-//		newTeacherAccountPolicyConfirmPage.clickCheckBox();
+
 		newTeacherConnectEdHomepage = olpLoginPage.loginToNewTeachConnectEDdash();
+		wd.navigate().back();
+		olpLoginPage.getEmailPasswordFromNewTeacherPage();
+		newTeacherConnectEdHomepage = olpLoginPage.loginToNewTeachConnectEDdash();
+
 		newTeacherAcountHomepage = newTeacherConnectEdHomepage.clickAchive3000Lit();
 		newTeacherAcountHomepage.clickCreateClassBtn();
 		newTeacherAcountHomepage.clickProduct();
@@ -62,11 +65,11 @@ public class OLPCreateNewTeacherSingleSchAndClassTest extends BaseClass {
 		newTeacherAcountHomepage.selectSubject();
 		newTeacherAcountHomepage.selectGrade();
 		newTeacherAcountHomepage.clickComplete();
-		
+
 		softAssert.assertAll();
 	}
 
-	@AfterMethod(enabled = false)
+	@AfterMethod(enabled = true)
 	public void tearDown() {
 
 		wd.quit();

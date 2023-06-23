@@ -30,7 +30,7 @@ public class OLPCreateNewStudentTest extends BaseClass {
 	@Test(invocationCount = 1)
 	public void createNewOLPStudentTest() throws Exception {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
-		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("canvasUrl"),
+		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("mhURL"),
 				"Not a valid Page. Expecting Canvas Login Page");
 		olpLoginPage.inputEmailPassword();
 

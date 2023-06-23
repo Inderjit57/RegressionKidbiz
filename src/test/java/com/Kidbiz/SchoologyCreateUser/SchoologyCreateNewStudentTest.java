@@ -1,5 +1,7 @@
 package com.Kidbiz.SchoologyCreateUser;
 
+import java.util.Scanner;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -12,6 +14,7 @@ import com.KidbizSSO.Method.Schoology.SchoologyNewUserAndClass.SchoologyCreateNe
 
 public class SchoologyCreateNewStudentTest extends BaseClass {
 
+	Scanner sc = new Scanner(System.in);
 	Schoology schoology;
 	SchoologyHomepage homepage;
 	SchoologyCreateNewStudent schoologyCreateNewStudent;
@@ -25,12 +28,13 @@ public class SchoologyCreateNewStudentTest extends BaseClass {
 		schoology = new Schoology();
 	}
 
-	@Test(invocationCount = 1, enabled = true)
+	@Test(invocationCount = 1)
 	public void createSchoologyUserTest() throws Exception {
+
 		System.out.println("Current URL: " + wd.getCurrentUrl());
 		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("schoologyUrl"),
 				"Not a valid Page. Expecting Schoology Login Page");
-		
+
 		schoology.email(properties.getProperty("emailSchoology"));
 		schoology.pass(properties.getProperty("passSchoology"));
 		homepage = schoology.signIn();
@@ -43,7 +47,7 @@ public class SchoologyCreateNewStudentTest extends BaseClass {
 		schoologyCreateNewStudent.clickEmailConflicts();
 		schoologyCreateNewStudent.fillStudentCredentials();
 		schoologyCreateNewStudent.clickSubmitBtnForStudent();
-		
+
 		softAssert.assertAll();
 
 	}

@@ -26,7 +26,7 @@ public class SchoologyCreateNewTeacherTest extends BaseClass {
 		schoology = new Schoology();
 	}
 
-	@Test(invocationCount = 1, enabled = true)
+	@Test(invocationCount = 1)
 	public void createSchoologyUserTest() throws Exception {
 		System.out.println("Current URL: " + wd.getCurrentUrl());
 		softAssert.assertEquals(wd.getCurrentUrl(), properties.getProperty("schoologyUrl"),
