@@ -73,7 +73,7 @@ public class CanvasCreateStudent extends BaseClass {
 		 */
 
 		String studentFirstName = Utils.fakeFirstNameGenerator();
-		String studentLastName = Utils.fakeLastNameGenerator() + RandomStringUtils.randomAlphabetic(3);
+		String studentLastName = Utils.fakeLastNameGenerator();
 		String studentEnterFullName = studentFirstName + ", " + studentLastName; // Last name needs a space on
 																					// Canvas while creating user
 		String studentEnterSortable = " " + studentLastName; // Issue on Canvas side, it doesn't put the last name
