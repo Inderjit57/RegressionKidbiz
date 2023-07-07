@@ -1,5 +1,6 @@
 package com.KidbizSSO.Method.GoogleOnDemand;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -18,7 +19,7 @@ public class GoogleUserProfilePage extends BaseClass {
 	}
 
 	// Add user to group
-	@FindBy(xpath = "//li[@id='node-N333-2899837349']//a[text()='Groups']")
+	@FindBy(xpath = "//div[@data-helpcontext='UserListing'] /div /div[1]//c-wiz/div/ul/li[2]/ul/li[2]")
 	private WebElement groupBtn;
 	
 	@FindBy(css = "tr[data-group-name='Classroom Teachers'] div[data-tooltip='Add members']")
@@ -50,13 +51,16 @@ public class GoogleUserProfilePage extends BaseClass {
 	@FindBy(css = "div[class='nL3Jpb J9fJmf'] div[role='button']:nth-of-type(2)")
 	private WebElement resetBtn;
 	
-	public void addUserToGroup() {
-		Utils.clickOnElement(groupBtn);
+	public void addUserToGroup() throws Exception {
+		groupBtn.click();
 		
 		Utils.moveToElement(addMemberBtn);
 		Utils.actionClick(addMemberBtn);
 		
 		Utils.sendData(findUserField, GoogleAdminHomepage.firstName);
+		Thread.sleep(1000);
+		findUserField.click();
+		findUserField.sendKeys(Keys.SPACE);
 		Utils.waitForElementToBeClickable(searchUserClick, Utils.Explicit_Wait);
 		Utils.clickOnElement(searchUserClick);
 		Utils.clickOnElement(addToGroupBtn);	

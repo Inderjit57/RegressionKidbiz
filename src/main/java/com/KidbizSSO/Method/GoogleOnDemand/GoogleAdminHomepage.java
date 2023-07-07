@@ -43,9 +43,8 @@ public class GoogleAdminHomepage extends BaseClass {
 	@FindBy(css = "span[class='PbnGhe oJeWuf fb0g6 MR2XUb'] div[class='nL3Jpb J9fJmf'] span[class='CwaK9']")
 	private WebElement doneBtn2;
 
-	public static String firstName = Utils.fakeFirstNameGenerator();
-
-	public static String lastName = Utils.fakeLastNameGenerator() + RandomStringUtils.randomAlphabetic(2);
+	public static String firstName = Utils.fakeFirstNameGenerator() + RandomStringUtils.randomAlphabetic(2);
+	public static String lastName = Utils.fakeLastNameGenerator();
 
 	public void clickAddUserBtn() {
 		Utils.clickOnElement(AddUserBtn);
