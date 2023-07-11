@@ -59,12 +59,12 @@ public class CanvasNewClass extends BaseClass {
 		Utils.waitForElementToBeVisible(addNewCourseWindow, 10);
 		Utils.javascriptClick(courseName);
 		/*
-		 * Variables declared a to fill the form to create new teacher. Variables are
-		 * declared and initialised in the scope of this method, so that for a new
-		 * webDriver instance(when invocation count is >1) new random value will be
-		 * created. If they are declared at class level, Webdriver takes the old value
+		 * Variables are declared and initialised in the scope of this method, so that
+		 * for a new webDriver instance(when invocation count is >1) new random value
+		 * will be created. If they are declared at class level, Webdriver takes the old
+		 * value
 		 */
-		String enterCourseName = "Canvas"+Utils.fakeClassNameGenerator() + RandomStringUtils.randomAlphabetic(2);
+		String enterCourseName = "Canvas" + Utils.fakeClassNameGenerator() + RandomStringUtils.randomAlphabetic(2);
 		Utils.sendData(courseName, enterCourseName);
 		System.out.println("Course Name: " + enterCourseName);
 

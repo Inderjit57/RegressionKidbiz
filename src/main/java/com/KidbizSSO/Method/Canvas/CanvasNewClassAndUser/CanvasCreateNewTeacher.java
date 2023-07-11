@@ -66,13 +66,13 @@ public class CanvasCreateNewTeacher extends BaseClass {
 		Utils.waitForElementToBeVisible(addNewUserFormWindow, 10);
 
 		/*
-		 * Variables declared a to fill the form to create new teacher. Variables are
-		 * declared and initialised in the scope of this method, so that for a new
-		 * webDriver instance(when invocation count is >1) new random value will be
-		 * created. If they are declared at class level, Webdriver takes the old value
+		 * Variables are declared and initialised in the scope of this method, so that
+		 * for a new webDriver instance(when invocation count is >1) new random value
+		 * will be created. If they are declared at class level, Webdriver takes the old
+		 * value
 		 */
 
-		String teacherFirstName = "tch"+Utils.fakeFirstNameGenerator(); // Generic for Student and Teacher Account
+		String teacherFirstName = "tch" + Utils.fakeFirstNameGenerator(); // Generic for Student and Teacher Account
 		String teacherLastName = Utils.fakeLastNameGenerator(); // Generic for Student and Teacher Account
 		String teacherEnterFullName = teacherFirstName + ", " + teacherLastName; // Last name needs a space on
 																					// Canvas while creating user
