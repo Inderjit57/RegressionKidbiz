@@ -48,7 +48,7 @@ public class CanvasAddNewCourseTest extends BaseClass {
 
 	}
 
-	@AfterMethod(enabled = false)
+	@AfterMethod(enabled = true)
 	public void tearDown() {
 		wd.quit();
 	}
