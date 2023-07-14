@@ -55,7 +55,7 @@ public class OLPCreateNewStudentPage extends BaseClass {
 	@FindBy(css = "#studentId")
 	private WebElement studentIdOlp;
 
-	@FindBy(css = "button[data-automation-id='student-create-submit-button']")
+	@FindBy(css = "mhe-button[class='save'] button")
 	private WebElement createBtn;
 
 	private String[] a3kSchool = { "A3K LITERACY TEST SCHOOL 1", "A3K LITERACY TEST SCHOOL 2",
@@ -119,8 +119,8 @@ public class OLPCreateNewStudentPage extends BaseClass {
 
 		Utils.sendData(searchbox, pickOlpSchool);
 		Utils.waitForTextToBePresestInElementValue(Utils.Explicit_Wait, searchbox, pickOlpSchool);
-		Thread.sleep(500);
-		Utils.clickOnElement(schoolSearched);
+		Thread.sleep(1000);
+		Utils.javascriptClick(schoolSearched);
 		Utils.clickOnElement(schoolOlpStudent);
 
 		Utils.sendData(studentIdOlp, studentId);

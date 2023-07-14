@@ -27,7 +27,6 @@ public class AdminAccountHomepage extends BaseClass {
 	public void clickDropdown() {
 		Utils.waitForElementToBeClickable(roleMenu, Utils.Explicit_Wait);
 		Utils.clickOnElement(roleMenu);
-		Utils.clickOnElement(administratorRole);
 	}
 
 	public AdministratorPage clickAdministrator() {
