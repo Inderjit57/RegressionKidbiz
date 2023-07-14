@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.Kidbiz.OLPTest.UAT.CreateNewTeacherUATTest"/>
+      <class name="com.Kidbiz.SchoologyCreateUser.SchoologyCreateNewCourseTest"/>
+      <class name="com.Kidbiz.OLPTest.OLPCreateNewTeacherSingleSchAndClassTest"/>
+      <class name="com.Kidbiz.GoogleOnDemandTest.GoogleOnDemandNewUserTest"/>
+      <class name="com.KidbizSSO.SSOTestCases.SchoologySSOTest"/>
+      <class name="com.Kidbiz.CanvasCreateUsers.CanvasAddNewCourseTest"/>
+      <class name="com.Kidbiz.OLPTest.OLPCreateNewStudentTest"/>
+      <class name="com.Kidbiz.CanvasCreateUsers.CanvasNewStudentTest"/>
+      <class name="com.Kidbiz.CanvasCreateUsers.CanvasNewTeacherTest"/>
+      <class name="com.Kidbiz.SchoologyCreateUser.SchoologyCreateNewTeacherTest"/>
+      <class name="com.Kidbiz.OLPTest.UAT.CreateNewStudentUATTest"/>
+      <class name="com.Kidbiz.SchoologyCreateUser.SchoologyCreateNewStudentTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
