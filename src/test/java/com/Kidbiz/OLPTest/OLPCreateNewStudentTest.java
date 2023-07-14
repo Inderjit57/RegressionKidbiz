@@ -47,7 +47,7 @@ public class OLPCreateNewStudentTest extends BaseClass {
 		softAssert.assertAll();
 	}
 
-	@AfterMethod(enabled = false)
+	@AfterMethod(enabled = true)
 	public void tearDown() {
 		wd.quit();
 	}
